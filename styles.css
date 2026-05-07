@@ -90,7 +90,7 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('public/banner/01 (1).webp');
+  background-image: url('picture/banner/01 (1).webp');
   background-size: cover;
   background-position: center;
   animation: heroBgSlide 10s ease-in-out infinite;
@@ -98,9 +98,9 @@ body {
 }
 
 @keyframes heroBgSlide {
-  0%, 45%   { background-image: url('public/banner/01 (1).webp'); }
-  50%, 95%  { background-image: url('public/banner/04.webp'); }
-  100%      { background-image: url('public/banner/01 (1).webp'); }
+  0%, 45%   { background-image: url('picture/banner/01 (1).webp'); }
+  50%, 95%  { background-image: url('picture/banner/04.webp'); }
+  100%      { background-image: url('picture/banner/01 (1).webp'); }
 }
 
 /* Dark gradient overlay for text legibility */
