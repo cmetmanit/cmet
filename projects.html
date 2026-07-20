@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CMET | Projects</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-projects">
@@ -46,14 +47,19 @@
 
   <main class="mt-5 pt-5 pb-5">
     <section class="container py-5">
-      <div class="row mb-4">
-        <div class="col-lg-8">
+      <div class="project-hero mb-4">
+        <div class="project-hero__content">
+          <p class="project-kicker">OUR WORK</p>
           <h1 class="section-heading">Projects</h1>
           <p class="section-subtitle">Ongoing and completed initiatives with research-led impact.</p>
         </div>
+        <div class="project-hero__actions">
+          <div class="project-stat"><strong>Active</strong><span>8 projects</span></div>
+          <div class="project-stat"><strong>Completed</strong><span>12 projects</span></div>
+        </div>
       </div>
 
-<div class="row mb-4">
+      <div class="row mb-4">
         <div class="col-lg-12">
           <h2 class="section-heading">Ongoing Projects</h2>
         </div>
@@ -62,7 +68,7 @@
         <div class="col-md-6">
           <div class="card feature-card h-100 card-border">
             <div class="project-image-section">
-              <img src="picture/Project & Work/Sustainable Rural Microgrid.png" alt="Sustainable Rural Microgrid" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src = this.src; document.getElementById('modalImage').alt = this.alt;" style="cursor: pointer;">
+              <img src="picture/Project & Work/Sustainable Rural Microgrid.png" alt="Sustainable Rural Microgrid" data-caption="Design and development of intelligent control strategies for rural microgrid systems." onclick="openModal(this)" style="cursor: pointer;">
             </div>
             <div class="p-4">
               <h4>Sustainable Rural Microgrid (CPRI)</h4>
@@ -82,7 +88,7 @@
         <div class="col-md-6">
           <div class="card feature-card h-100 card-border">
             <div class="project-image-section">
-              <img src="picture/Project & Work/PM-KUSUM Integration Study.png" alt="PM-KUSUM Integration Study" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src = this.src; document.getElementById('modalImage').alt = this.alt;" style="cursor: pointer;">
+              <img src="picture/Project & Work/PM-KUSUM Integration Study.png" alt="PM-KUSUM Integration Study" data-caption="Assessment of cost-effective integration of PM-KUSUM solar plants into distribution networks." onclick="openModal(this)" style="cursor: pointer;">
             </div>
             <div class="p-4">
               <h4>PM-KUSUM Integration Study (CEEW)</h4>
@@ -102,7 +108,7 @@
         <div class="col-md-6">
           <div class="card feature-card h-100 card-border">
             <div class="project-image-section">
-              <img src="picture/Project & Work/Solar Inverter Pilot Project.png" alt="Solar Inverter Pilot Project" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src = this.src; document.getElementById('modalImage').alt = this.alt;" style="cursor: pointer;">
+              <img src="picture/Project & Work/Solar Inverter Pilot Project.png" alt="Solar Inverter Pilot Project" data-caption="Implementation of inverter-based voltage regulation for improving distribution network performance." onclick="openModal(this)" style="cursor: pointer;">
             </div>
             <div class="p-4">
               <h4>Solar Inverter Pilot Project (GIZ)</h4>
@@ -130,7 +136,7 @@
         <div class="col-md-6">
           <div class="card feature-card h-100 card-border">
             <div class="project-image-section">
-              <img src="picture/Project & Work/RUMSL.png" alt="Scaling KUSUM Projects" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src = this.src; document.getElementById('modalImage').alt = this.alt;" style="cursor: pointer;">
+              <img src="picture/Project & Work/RUMSL.png" alt="Scaling KUSUM Projects" data-caption="Technical analysis for optimal deployment of solar projects under KUSUM schemes." onclick="openModal(this)" style="cursor: pointer;">
             </div>
             <div class="p-4">
               <h4>Scaling up KUSUM-A & C Projects (RUMSL)</h4>
@@ -150,7 +156,7 @@
         <div class="col-md-6">
           <div class="card feature-card h-100 card-border">
             <div class="project-image-section">
-              <img src="picture/Project & Work/Reactive Power Management in Renewable Grid.png" alt="Reactive Power Management" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src = this.src; document.getElementById('modalImage').alt = this.alt;" style="cursor: pointer;">
+              <img src="picture/Project & Work/Reactive Power Management in Renewable Grid.png" alt="Reactive Power Management" data-caption="Utilization of solar inverters for reactive power support and grid stability enhancement." onclick="openModal(this)" style="cursor: pointer;">
             </div>
             <div class="p-4">
               <h4>Reactive Power Management in Renewable Grid</h4>
@@ -170,7 +176,7 @@
         <div class="col-md-6">
           <div class="card feature-card h-100 card-border">
             <div class="project-image-section">
-              <img src="picture/Project & Work/MPMKVVCL.png" alt="Technical Loss Estimation" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src = this.src; document.getElementById('modalImage').alt = this.alt;" style="cursor: pointer;">
+              <img src="picture/Project & Work/MPMKVVCL.png" alt="Technical Loss Estimation" data-caption="Evaluation of technical losses in distribution systems to improve efficiency." onclick="openModal(this)" style="cursor: pointer;">
             </div>
             <div class="p-4">
               <h4>Technical Loss Estimation (MPMKVVCL)</h4>
@@ -190,7 +196,7 @@
         <div class="col-md-6">
           <div class="card feature-card h-100 card-border">
             <div class="project-image-section">
-              <img src="picture/Project & Work/WRI.png" alt="Transmission Adequacy Study" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src = this.src; document.getElementById('modalImage').alt = this.alt;" style="cursor: pointer;">
+              <img src="picture/Project & Work/WRI.png" alt="Transmission Adequacy Study" data-caption="Assessment of transmission network readiness and optimal energy storage deployment." onclick="openModal(this)" style="cursor: pointer;">
             </div>
             <div class="p-4">
               <h4>Transmission Adequacy & Storage Optimization (WRI)</h4>
@@ -210,7 +216,7 @@
         <div class="col-md-6">
           <div class="card feature-card h-100 card-border">
             <div class="project-image-section">
-              <img src="picture/Project & Work/IoT-Based Demand Side Management.png" alt="IoT Demand Side Management" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src = this.src; document.getElementById('modalImage').alt = this.alt;" style="cursor: pointer;">
+              <img src="picture/Project & Work/IoT-Based Demand Side Management.png" alt="IoT Demand Side Management" data-caption="Development of IoT-based system for real-time monitoring and optimization of energy consumption." onclick="openModal(this)" style="cursor: pointer;">
             </div>
             <div class="p-4">
               <h4>IoT-Based Demand Side Management</h4>
@@ -239,6 +245,7 @@
         </div>
         <div class="modal-body text-center">
           <img id="modalImage" src="" alt="" class="img-fluid">
+          <p id="modalCaption" class="mt-3 text-muted"></p>
         </div>
       </div>
     </div>
@@ -253,6 +260,18 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts.js"></script>
+  <script>
+    function openModal(el) {
+      var img = document.getElementById('modalImage');
+      var cap = document.getElementById('modalCaption');
+      img.src = el.src;
+      img.alt = el.alt || '';
+      cap.textContent = el.getAttribute('data-caption') || el.alt || '';
+      var modalEl = document.getElementById('imageModal');
+      var modal = new bootstrap.Modal(modalEl);
+      modal.show();
+    }
+  </script>
 </body>
 </html>
 
