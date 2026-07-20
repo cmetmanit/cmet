@@ -66,5 +66,128 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  }
+  // Desktop-only dropdown hover enhancement for Bootstrap navbars.
+  (function() {
+    const desktopQuery = window.matchMedia('(min-width: 992px)');
+    const hoverDelay = 220;
+    const dropdownItems = Array.from(document.querySelectorAll('.nav-item.dropdown'));
+    const hoverState = new WeakMap();
+
+    if (!dropdownItems.length || !window.bootstrap || !window.bootstrap.Dropdown) {
+      return;
+    }
+
+    const clearTimers = state => {
+      if (state.openTimer) {
+        clearTimeout(state.openTimer);
+        state.openTimer = null;
+      }
+      if (state.closeTimer) {
+        clearTimeout(state.closeTimer);
+        state.closeTimer = null;
+      }
+    };
+
+    const showDropdown = state => {
+      clearTimeout(state.closeTimer);
+      if (!state.dropdownMenu.classList.contains('show')) {
+        state.openTimer = window.setTimeout(() => {
+          state.dropdownInstance.show();
+        }, 50);
+      }
+    };
+
+    const hideDropdown = state => {
+      clearTimeout(state.openTimer);
+      state.closeTimer = window.setTimeout(() => {
+        if (!state.dropdownItem.matches(':hover')) {
+          state.dropdownInstance.hide();
+        }
+      }, hoverDelay);
+    };
+
+    const attachHover = (dropdownItem) => {
+      const trigger = dropdownItem.querySelector('[data-bs-toggle="dropdown"]');
+      const menu = dropdownItem.querySelector('.dropdown-menu');
+      if (!trigger || !menu) {
+        return;
+      }
+
+      const instance = window.bootstrap.Dropdown.getOrCreateInstance(trigger);
+      const state = {
+        dropdownItem,
+        trigger,
+        dropdownMenu: menu,
+        dropdownInstance: instance,
+        openTimer: null,
+        closeTimer: null,
+        mouseEnterHandler: null,
+        mouseLeaveHandler: null,
+        menuEnterHandler: null,
+      };
+      hoverState.set(dropdownItem, state);
+
+      state.mouseEnterHandler = () => {
+        if (!desktopQuery.matches) return;
+        showDropdown(state);
+      };
+      state.mouseLeaveHandler = () => {
+        if (!desktopQuery.matches) return;
+        hideDropdown(state);
+      };
+      state.menuEnterHandler = () => {
+        if (!desktopQuery.matches) return;
+        clearTimeout(state.closeTimer);
+      };
+
+      dropdownItem.addEventListener('mouseenter', state.mouseEnterHandler);
+      dropdownItem.addEventListener('mouseleave', state.mouseLeaveHandler);
+      menu.addEventListener('mouseenter', state.menuEnterHandler);
+      menu.addEventListener('mouseleave', state.mouseLeaveHandler);
+    };
+
+    const detachHover = (dropdownItem) => {
+      const state = hoverState.get(dropdownItem);
+      if (!state) return;
+      clearTimers(state);
+      dropdownItem.removeEventListener('mouseenter', state.mouseEnterHandler);
+      dropdownItem.removeEventListener('mouseleave', state.mouseLeaveHandler);
+      state.dropdownMenu.removeEventListener('mouseenter', state.menuEnterHandler);
+      state.dropdownMenu.removeEventListener('mouseleave', state.mouseLeaveHandler);
+    };
+
+    const enableHover = () => {
+      dropdownItems.forEach(dropdownItem => {
+        const state = hoverState.get(dropdownItem);
+        if (state && state.mouseEnterHandler) {
+          return;
+        }
+        attachHover(dropdownItem);
+      });
+    };
+
+    const disableHover = () => {
+      dropdownItems.forEach(dropdownItem => {
+        detachHover(dropdownItem);
+      });
+    };
+
+    const onDesktopChange = (event) => {
+      if (event.matches) {
+        enableHover();
+      } else {
+        disableHover();
+      }
+    };
+
+    if (desktopQuery.addEventListener) {
+      desktopQuery.addEventListener('change', onDesktopChange);
+    } else if (desktopQuery.addListener) {
+      desktopQuery.addListener(onDesktopChange);
+    }
+
+    if (desktopQuery.matches) {
+      enableHover();
+    }
+  })();
 });
