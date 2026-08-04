@@ -4,235 +4,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Positions | CMET</title>
+  <title>Jobs &amp; Notice Board Dashboard | CMET</title>
+  <meta name="description" content="CMET Careers & Jobs Dashboard - Explore active vacancies, hiring requirements, ongoing research projects, and upcoming technical workshops at MANIT Bhopal.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .opening-hero {
-      background: linear-gradient(135deg, #0f4366 0%, #1a8d7c 100%);
-      color: white;
-      padding: 80px 0;
-      text-align: center;
-    }
-
-    .opening-hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .opening-hero p {
-      font-size: 1.2rem;
-      opacity: 0.95;
-    }
-
-    .positions-container {
-      padding: 80px 0;
-      background: var(--background);
-    }
-
-    .position-card {
-      background: white;
-      border-radius: 12px;
-      padding: 35px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 12px rgba(15, 67, 102, 0.08);
-      transition: all 0.3s ease;
-      border-left: 5px solid var(--teal);
-    }
-
-    .position-card:hover {
-      box-shadow: 0 8px 24px rgba(15, 67, 102, 0.15);
-      transform: translateY(-4px);
-    }
-
-    .position-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 15px;
-    }
-
-    .position-meta {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .meta-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.95rem;
-    }
-
-    .meta-badge {
-      background: rgba(26, 141, 124, 0.1);
-      color: var(--teal);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-
-    .position-description {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 20px;
-      font-size: 0.98rem;
-    }
-
-    .position-details {
-      background: #f8fafb;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-
-    .detail-row {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 20px;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-    }
-
-    .detail-label {
-      font-weight: 700;
-      color: var(--blue);
-    }
-
-    .detail-value {
-      color: var(--muted);
-    }
-
-    .apply-btn {
-      background: linear-gradient(135deg, var(--teal) 0%, var(--accent) 100%);
-      color: white;
-      border: none;
-      padding: 12px 35px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-
-    .apply-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(26, 141, 124, 0.3);
-      color: white;
-      text-decoration: none;
-    }
-
-    .positions-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    .positions-list {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    .quick-links {
-      background: white;
-      border-radius: 12px;
-      padding: 35px;
-      box-shadow: 0 2px 12px rgba(15, 67, 102, 0.08);
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    .quick-links h3 {
-      color: var(--blue);
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .quick-links a {
-      display: inline-block;
-      margin: 10px 15px;
-      padding: 12px 30px;
-      background: rgba(26, 141, 124, 0.1);
-      color: var(--teal);
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .quick-links a:hover {
-      background: var(--teal);
-      color: white;
-    }
-
-    .requirements-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .requirements-list li {
-      padding: 8px 0;
-      padding-left: 25px;
-      position: relative;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .requirements-list li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--teal);
-      font-weight: 700;
-    }
-
-    .section-divider {
-      margin: 50px 0;
-      border: none;
-      border-top: 1px solid rgba(15, 67, 102, 0.1);
-    }
-
-    @media (max-width: 768px) {
-      .positions-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .opening-hero h1 {
-        font-size: 2rem;
-      }
-
-      .position-card {
-        padding: 25px;
-      }
-
-      .detail-row {
-        grid-template-columns: 1fr;
-        gap: 5px;
-      }
-    }
-  </style>
 </head>
 
 <body class="page-opening">
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html"><img src="logo.jpg" alt="CMET Logo" height="65"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link text-uppercase" href="index.html">HOME</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="ourWorkDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">OUR WORK</a>
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="ourWorkDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">OUR WORK</a>
             <ul class="dropdown-menu" aria-labelledby="ourWorkDropdown">
               <li><a class="dropdown-item" href="focus-areas.html">RESEARCH AREAS</a></li>
               <li><a class="dropdown-item" href="labs.html">LABORATORIES</a></li>
@@ -241,17 +31,16 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="researchTeamDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">RESEARCH TEAM</a>
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="researchTeamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">RESEARCH TEAM</a>
             <ul class="dropdown-menu" aria-labelledby="researchTeamDropdown">
               <li><a class="dropdown-item" href="team-lead.html">TEAM LEAD</a></li>
               <li><a class="dropdown-item" href="team-member.html">TEAM MEMBER</a></li>
               <li><a class="dropdown-item" href="team-member.html#alumni">ALUMNI</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="publications.html">NEWS</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="news.html">NEWS</a></li>
           <li class="nav-item"><a class="nav-link text-uppercase" href="about.html">ABOUT US</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="opening.html">OPEN POSITIONS</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase active" href="opening.html">OPEN POSITIONS</a></li>
           <li class="nav-item"><a class="nav-link text-uppercase" href="contact.html">CONTACT US</a></li>
           <li class="nav-item"><a class="nav-link text-uppercase" href="gallery.html">GALLERY</a></li>
         </ul>
@@ -259,203 +48,155 @@
     </div>
   </nav>
 
-  <main class="mt-5 pt-5">
-    <div class="topbar">
-      <div class="container d-flex justify-content-between align-items-center py-2">
-        <div>Centre for Mission on Energy Transition</div>
-        <div class="d-flex gap-3">
-          <a href="#" target="_blank">YouTube Channel</a>
-          <a href="#" target="_blank">Follow us on LinkedIn</a>
+  <main class="mt-5 pt-5 pb-5">
+    <!-- Jobs Header Banner -->
+    <section class="py-5 bg-light position-relative overflow-hidden">
+      <div class="mesh-bg-overlay"></div>
+      <div class="container py-3">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <span class="section-eyebrow">CAREERS &amp; NOTICE BOARD DASHBOARD</span>
+            <h1 class="display-4 fw-bold text-blue">Join the CMET Research Team</h1>
+            <p class="lead text-muted">A dedicated dashboard showing active hiring, ongoing projects, vacancies, and upcoming workshops at MANIT Bhopal.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+            <a class="btn btn-cta btn-cta-shimmer btn-lg rounded-pill" href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form.%20(1).pdf" target="_blank">Download Application PDF &darr;</a>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="opening-hero">
-      <div class="container">
-        <h1>Join Our Team</h1>
-        <p>Be part of India's energy transition journey. We're looking for talented individuals to drive clean energy research and innovation.</p>
       </div>
     </section>
 
-    <!-- Main Content -->
-    <section class="positions-container">
+    <!-- Jobs Notice Board Dashboard Section (Item 5) -->
+    <section class="py-6 bg-white">
       <div class="container">
-        <!-- Intro -->
-        <div class="row mb-5">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 style="color: var(--blue); font-weight: 700; margin-bottom: 20px;">
-              Advertisement for Various Positions at CMET
-            </h2>
-            <p style="color: var(--muted); font-size: 1.05rem; line-height: 1.8;">
-              The Centre for Mission on Energy Transition (CMET) is seeking dynamic and motivated professionals to join our growing team. 
-              We offer opportunities across various roles to contribute to India's clean energy future.
-            </p>
-            <a href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form. (1).pdf" target="_blank" class="apply-btn mt-3">
-              Download Full Advertisement & Application Form
-            </a>
+        <!-- Dashboard Summary Stats Bar -->
+        <div class="row g-3 mb-5">
+          <div class="col-md-3">
+            <div class="p-4 rounded-4 bg-blue text-white text-center h-100" style="background: #0b2733;">
+              <span class="d-block text-cyan fs-2 fw-bold" style="color: var(--accent-cyan);">03</span>
+              <span class="small text-uppercase text-slate-300">Active Vacancies</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-4 rounded-4 bg-teal text-white text-center h-100" style="background: #137a6a;">
+              <span class="d-block text-white fs-2 fw-bold">04</span>
+              <span class="small text-uppercase">Active Projects</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-4 rounded-4 bg-light border text-center h-100">
+              <span class="d-block text-blue fs-2 fw-bold">02</span>
+              <span class="small text-uppercase text-muted">Upcoming Workshops</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-4 rounded-4 bg-light border text-center h-100">
+              <span class="d-block text-teal fs-2 fw-bold">100%</span>
+              <span class="small text-uppercase text-muted">MANIT Bhopal Campus</span>
+            </div>
           </div>
         </div>
 
-        <hr class="section-divider">
-        <div class="positions-list">
-          <!-- Research Associate -->
-          <div class="position-card">
-            <div class="position-title">Research Associate (RA)</div>
-            <div class="position-meta">
-              <span class="meta-badge">Mid/Senior Level</span>
-              <span class="meta-badge">Full-time</span>
-              <span class="meta-badge">Vacancies: 03</span>
+        <div class="row g-4">
+          <!-- Active Vacancy 1 -->
+          <div class="col-lg-6">
+            <div class="notice-board-card h-100 reveal reveal-slide-up">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <span class="big-project-tag">RESEARCH STAFF</span>
+                <span class="vacancy-badge">FULL-TIME • ACTIVE</span>
+              </div>
+              <h3 class="text-blue fw-bold">Research Associate (Power System Modeling &amp; ETAP)</h3>
+              <p class="text-muted">Targeted hiring for electrical power system modeling, load flow analysis, and transmission network headroom calculation using ETAP and PSS®E software.</p>
+              
+              <div class="p-3 rounded-3 bg-light border mb-4">
+                <div class="d-flex justify-content-between py-1 border-bottom"><span class="fw-semibold">Qualifications:</span> <span>M.Tech / Ph.D. in Electrical Engg</span></div>
+                <div class="d-flex justify-content-between py-1 border-bottom"><span class="fw-semibold">Active Project:</span> <span>MP State Grid Transmission Study</span></div>
+                <div class="d-flex justify-content-between py-1"><span class="fw-semibold">Location:</span> <span>MANIT Bhopal Campus</span></div>
+              </div>
+
+              <a class="btn btn-cta btn-sm rounded-pill px-4" href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form.%20(1).pdf" target="_blank">Download Form &amp; Apply &rarr;</a>
             </div>
-            <p class="position-description">
-              Masters in Electrical Engineering (Power system/Power Electronics or equivalent)/MBA (Energy Management/Economics) or equivalent degree.
-            </p>
-            <div class="position-details">
-              <div class="detail-row">
-                <div class="detail-label">Salary:</div>
-                <div class="detail-value">Consolidated Gross Salary Rs. 60,000 to 80,000/- per month (depending on capabilities)</div>
-              </div>
-              <div class="detail-row">
-                <div class="detail-label">Essential Qualifications:</div>
-                <div class="detail-value">Masters in Electrical Engineering (Power system/Power Electronics) or MBA (Energy Management/Economics) or equivalent degree</div>
-              </div>
-              <div class="detail-row">
-                <div class="detail-label">Experience:</div>
-                <div class="detail-value">02 Years for Non–Ph.D. OR Ph.D Degree completed/submitted</div>
-              </div>
-              <div class="detail-row">
-                <div class="detail-label">Desirable:</div>
-                <div class="detail-value">Proficiency in modelling and analysis of transmission system using PSSE/DIgSILENT PowerFactory/PSCAD. Knowledge of carbon credits, sustainability management, economic assessment of power system.</div>
-              </div>
-            </div>
-            <a href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form. (1).pdf" target="_blank" class="apply-btn">Apply / Details (PDF)</a>
           </div>
 
-          <!-- Senior Research Fellow -->
-          <div class="position-card">
-            <div class="position-title">Senior Research Fellow (SRF)</div>
-            <div class="position-meta">
-              <span class="meta-badge">Mid-Level</span>
-              <span class="meta-badge">Full-time</span>
-              <span class="meta-badge">Vacancies: 02</span>
-            </div>
-            <p class="position-description">
-              Masters in Electrical Engineering (Power system/Power Electronics or equivalent).
-            </p>
-            <div class="position-details">
-              <div class="detail-row">
-                <div class="detail-label">Salary:</div>
-                <div class="detail-value">Consolidated Gross Salary Rs. 55,000/- per month</div>
+          <!-- Active Vacancy 2 -->
+          <div class="col-lg-6">
+            <div class="notice-board-card h-100 reveal reveal-slide-up">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <span class="big-project-tag">FIELD PILOT STAFF</span>
+                <span class="vacancy-badge">FULL-TIME • ACTIVE</span>
               </div>
-              <div class="detail-row">
-                <div class="detail-label">Essential Qualifications:</div>
-                <div class="detail-value">Masters in Electrical Engineering (Power system/Power Electronics) or equivalent</div>
-              </div>
-              <div class="detail-row">
-                <div class="detail-label">Experience:</div>
-                <div class="detail-value">Nil</div>
-              </div>
-              <div class="detail-row">
-                <div class="detail-label">Desirable:</div>
-                <div class="detail-value">Proficiency in modelling tools (ETAP, PSSE, MATLAB, DIgSILENT PowerFactory) etc. SRFs need to appear in PhD selection process and register in PhD program.</div>
-              </div>
-            </div>
-            <a href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form. (1).pdf" target="_blank" class="apply-btn">Apply / Details (PDF)</a>
-          </div>
+              <h3 class="text-blue fw-bold">Senior Research Fellow (Solar Inverter Volt-VAR Control)</h3>
+              <p class="text-muted">Seeking research fellows to work on live field-tested solar inverter reactive power support and PM-KUSUM agricultural feeder deployments.</p>
 
-          <!-- Junior Research Fellow -->
-          <div class="position-card">
-            <div class="position-title">Junior Research Fellow (JRF)</div>
-            <div class="position-meta">
-              <span class="meta-badge">Entry-level</span>
-              <span class="meta-badge">Full-time</span>
-              <span class="meta-badge">Vacancies: 03</span>
+              <div class="p-3 rounded-3 bg-light border mb-4">
+                <div class="d-flex justify-content-between py-1 border-bottom"><span class="fw-semibold">Qualifications:</span> <span>B.Tech / M.Tech in Electrical / Power Systems</span></div>
+                <div class="d-flex justify-content-between py-1 border-bottom"><span class="fw-semibold">Active Project:</span> <span>PM-KUSUM Solarization Pilot</span></div>
+                <div class="d-flex justify-content-between py-1"><span class="fw-semibold">Location:</span> <span>MANIT Bhopal &amp; Field Sites</span></div>
+              </div>
+
+              <a class="btn btn-cta btn-sm rounded-pill px-4" href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form.%20(1).pdf" target="_blank">Download Form &amp; Apply &rarr;</a>
             </div>
-            <p class="position-description">
-              B.E. (Electrical, CSE, IOT).
-            </p>
-            <div class="position-details">
-              <div class="detail-row">
-                <div class="detail-label">Salary:</div>
-                <div class="detail-value">Consolidated Gross Salary Rs. 45,000/- per month</div>
-              </div>
-              <div class="detail-row">
-                <div class="detail-label">Essential Qualifications:</div>
-                <div class="detail-value">B.E. in Electrical / CSE / IOT</div>
-              </div>
-              <div class="detail-row">
-                <div class="detail-label">Experience:</div>
-                <div class="detail-value">Nil</div>
-              </div>
-              <div class="detail-row">
-                <div class="detail-label">Desirable:</div>
-                <div class="detail-value">Power system modelling and analysis, Data processing and analytics, Knowledge of IoT devices.</div>
-              </div>
-            </div>
-            <a href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form. (1).pdf" target="_blank" class="apply-btn">Apply / Details (JRF PDF)</a>
           </div>
         </div>
 
-        <!-- Project-specific Fellowship -->
-        <div class="position-card">
-          <div class="position-title">Project: Design and Development of Sustainable Framework and Control Strategies for Rural Microgrid</div>
-          <div class="position-meta">
-            <span class="meta-badge">Project</span>
-            <span class="meta-badge">Duration: 03 months</span>
-            <span class="meta-badge">Vacancies: 1</span>
-          </div>
-          <p class="position-description">Short-term project position for development of microgrid planning and control strategies.</p>
-          <div class="position-details">
-            <div class="detail-row">
-              <div class="detail-label">Fellowship:</div>
-              <div class="detail-value">Rs. 37,000/- per month (Consolidated)</div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-label">Eligibility:</div>
-              <div class="detail-value">B.Tech / ME / M.Tech in relevant stream. GATE qualification desirable. Industry experience desirable.</div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-label">Desirable:</div>
-              <div class="detail-value">Knowledge of Microgrid planning, hands-on modelling & simulation experience, MATLAB/ETAP, IoT, PLC.</div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-label">Application Procedure:</div>
-              <div class="detail-value">Walk-In with all documents OR E-mail the application form along with all documents to priyankapaliwal@manit.ac.in</div>
+        <!-- Active Projects & Upcoming Workshops Sub-Dashboard -->
+        <div class="row g-4 mt-4">
+          <div class="col-lg-6">
+            <div class="p-4 rounded-4 bg-light border h-100">
+              <h4 class="text-blue fw-bold mb-3">Active Hiring Projects</h4>
+              <ul class="list-unstyled">
+                <li class="p-3 rounded-3 bg-white border mb-2 d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong class="d-block text-blue">PM-KUSUM Feeder Solarization</strong>
+                    <span class="small text-muted">Field demonstration across rural distribution networks</span>
+                  </div>
+                  <span class="badge bg-teal-subtle text-teal">Active</span>
+                </li>
+                <li class="p-3 rounded-3 bg-white border mb-0 d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong class="d-block text-blue">Solar Inverter Night-Time Volt-VAR</strong>
+                    <span class="small text-muted">Reactive power compensation algorithms</span>
+                  </div>
+                  <span class="badge bg-teal-subtle text-teal">Active</span>
+                </li>
+              </ul>
             </div>
           </div>
-          <a href="picture/pdf/ADVERTISEMENT_FOR_POST_OF_JRF (1).pdf" target="_blank" class="apply-btn">Project Details / Apply (PDF)</a>
-        </div>
-           
-            </div>
-       
 
-     <!-- Quick Links -->
-        <div class="quick-links">
-          <h3>Application Information</h3>
-          <p style="color: var(--muted); margin-bottom: 25px;">
-            For detailed job descriptions, eligibility criteria, and application instructions, please download the full advertisement and application form.
-          </p>
-          <a href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form. (1).pdf" target="_blank">
-            Download Full Advertisement
-          </a>
-          <a href="contact.html">
-            Have Questions? Contact Us
-          </a>
+          <div class="col-lg-6">
+            <div class="p-4 rounded-4 bg-light border h-100">
+              <h4 class="text-blue fw-bold mb-3">Upcoming Workshops &amp; Training</h4>
+              <ul class="list-unstyled">
+                <li class="p-3 rounded-3 bg-white border mb-2 d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong class="d-block text-blue">Grid Integration &amp; ETAP Simulation Seminar</strong>
+                    <span class="small text-muted">Hands-on training for discom engineers &amp; scholars</span>
+                  </div>
+                  <span class="badge bg-primary-subtle text-primary">August 2026</span>
+                </li>
+                <li class="p-3 rounded-3 bg-white border mb-0 d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong class="d-block text-blue">HIL Microgrid Testing with OPAL-RT 5600</strong>
+                    <span class="small text-muted">Technical lab demonstration workshop</span>
+                  </div>
+                  <span class="badge bg-primary-subtle text-primary">September 2026</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer style="background: var(--blue); color: white; padding: 40px 0; margin-top: 60px; text-align: center;">
-    <div class="container">
-      <p>&copy; 2024 Centre for Mission on Energy Transition (CMET). All Rights Reserved.</p>
+  <footer class="footer">
+    <div class="container text-center">
+      <p>© CMET, MANIT Bhopal</p>
+      <p>cmet@manit.ac.in</p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts.js"></script>
 </body>
-
 </html>
-
-

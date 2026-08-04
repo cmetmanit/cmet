@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CMET | Labs</title>
+  <title>Laboratory Facilities | CMET</title>
+  <meta name="description" content="CMET Laboratory Facilities - Microgrid & HIL Simulation Lab (OPAL-RT 5600), IoT Lab, and Power System Simulation Tools at MANIT Bhopal.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-labs">
@@ -18,10 +20,10 @@
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link text-uppercase" href="index.html">HOME</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="ourWorkDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">OUR WORK</a>
+            <a class="nav-link dropdown-toggle text-uppercase active" href="#" id="ourWorkDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">OUR WORK</a>
             <ul class="dropdown-menu" aria-labelledby="ourWorkDropdown">
               <li><a class="dropdown-item" href="focus-areas.html">RESEARCH AREAS</a></li>
-              <li><a class="dropdown-item" href="labs.html">LABORATORIES</a></li>
+              <li><a class="dropdown-item active" href="labs.html">LABORATORIES</a></li>
               <li><a class="dropdown-item" href="projects.html">PROJECTS</a></li>
               <li><a class="dropdown-item" href="publications.html">PUBLICATIONS</a></li>
             </ul>
@@ -34,7 +36,7 @@
               <li><a class="dropdown-item" href="team-member.html#alumni">ALUMNI</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="publications.html">NEWS</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="news.html">NEWS</a></li>
           <li class="nav-item"><a class="nav-link text-uppercase" href="about.html">ABOUT US</a></li>
           <li class="nav-item"><a class="nav-link text-uppercase" href="opening.html">OPEN POSITIONS</a></li>
           <li class="nav-item"><a class="nav-link text-uppercase" href="contact.html">CONTACT US</a></li>
@@ -46,67 +48,54 @@
 
   <main class="mt-5 pt-5 pb-5">
     <section class="container py-5">
-      <div class="row mb-4">
-        <div class="col-lg-8">
-          <h1 class="section-heading">Laboratory Facilities</h1>
-          <p class="section-subtitle">Advanced facilities to support research, testing, and real-time validation.</p>
+      <div class="row mb-5 text-center">
+        <div class="col-lg-8 mx-auto">
+          <span class="section-eyebrow">RESEARCH INFRASTRUCTURE</span>
+          <h1 class="display-4 fw-bold text-blue">Laboratory Facilities</h1>
+          <p class="lead text-muted">State-of-the-art facilities supporting real-time hardware-in-the-loop (HIL) testing, microgrid simulation, and IoT grid analytics.</p>
         </div>
       </div>
-      <div class="row mb-5">
-        <div class="col-lg-12">
-          <div class="card section-card p-4">
-            <p>CMET hosts advanced laboratory facilities to support research, testing, and real-time validation of power system innovations.</p>
-          </div>
-        </div>
-      </div>
+
+      <!-- Item 11: Laboratory Segment Photo Cards Grid -->
       <div class="row g-4 mb-5">
         <div class="col-md-6">
-          <div class="card feature-card p-4 h-100 card-border">
-            <h3>Microgrid Laboratory</h3>
-            <h5>Equipment:</h5>
-            <ul>
-              <li>Grid Simulator</li>
-              <li>Wind Emulator</li>
-              <li>Solar Emulator</li>
-              <li>STATCOM</li>
-              <li>DC-DC Converter</li>
-              <li>PV Grid-Tied Inverter</li>
-              <li>Battery Inverter</li>
-              <li>Battery Bank (24 kWh)</li>
-              <li>Power Plant Controller</li>
-              <li>Power Quality Analyzer (Fluke)</li>
-              <li>OPAL-RT 5600</li>
-              <li>Edge Box Controller</li>
-              <li>BTS Relay Module</li>
-            </ul>
-            <h5>Capabilities:</h5>
-            <ul>
-              <li>Real-time microgrid simulation</li>
-              <li>Renewable integration testing</li>
-              <li>Voltage &amp; reactive power control</li>
-              <li>HIL simulation</li>
-              <li>Power quality analysis</li>
-              <li>AC/DC coupling testing</li>
-            </ul>
+          <div class="news-card h-100 reveal reveal-slide-up">
+            <div class="news-card-img-wrap">
+              <img src="picture/news/cmet-1.jpeg" alt="Microgrid & OPAL-RT 5600 Laboratory Segment" class="news-card-img">
+              <span class="big-project-tag" style="position: absolute; top: 1rem; left: 1rem;">MICROGRID LAB</span>
+            </div>
+            <div class="news-card-body">
+              <h3 class="text-blue fw-bold mb-3">Microgrid &amp; HIL Simulation Laboratory</h3>
+              <p class="text-muted small">Equipped with OPAL-RT 5600 real-time simulators, Grid Simulators, Solar &amp; Wind Emulators, 24 kWh Battery Bank, STATCOM, and Fluke Power Quality Analyzers.</p>
+
+              <h6 class="text-teal fw-bold mt-3">Key Capabilities:</h6>
+              <ul class="small text-muted mb-0">
+                <li>Real-time microgrid &amp; HIL simulation</li>
+                <li>Voltage &amp; reactive power control testing</li>
+                <li>AC/DC coupling &amp; BESS performance analysis</li>
+              </ul>
+            </div>
           </div>
         </div>
+
         <div class="col-md-6">
-          <div class="card feature-card p-4 h-100 card-border">
-            <h3>IoT Laboratory</h3>
-            <h5>Equipment:</h5>
-            <ul>
-              <li>IoT Devices</li>
-              <li>Sensors</li>
-              <li>Controllers</li>
-              <li>PCB CNC Cutting Machine</li>
-            </ul>
-            <h5>Capabilities:</h5>
-            <ul>
-              <li>Smart monitoring</li>
-              <li>Automation</li>
-              <li>Demand-side management</li>
-              <li>Data acquisition</li>
-            </ul>
+          <div class="news-card h-100 reveal reveal-slide-up">
+            <div class="news-card-img-wrap">
+              <img src="picture/news/cmet-2.jpeg" alt="IoT Laboratory Equipment Segment" class="news-card-img">
+              <span class="big-project-tag" style="position: absolute; top: 1rem; left: 1rem;">IOT LAB &amp; TOOLS</span>
+            </div>
+            <div class="news-card-body">
+              <h3 class="text-blue fw-bold mb-3">IoT Laboratory &amp; Software Suite</h3>
+              <p class="text-muted small">Featuring hardware-in-the-loop IoT controllers, smart sensors, CNC cutting machines, combined with industry-standard power system simulation tools.</p>
+
+              <h6 class="text-teal fw-bold mt-3">Software Ecosystem:</h6>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="software-pill-tag">RT-LAB</span>
+                <span class="software-pill-tag">ETAP</span>
+                <span class="software-pill-tag">PSS®E</span>
+                <span class="software-pill-tag">MATLAB / Simulink</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -124,6 +113,3 @@
   <script src="scripts.js"></script>
 </body>
 </html>
-
-
-

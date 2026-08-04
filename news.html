@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News &amp; Events | CMET</title>
+  <meta name="description" content="Latest news, announcements, research workshops, and field demonstrations from the Centre for Mission on Energy Transition (CMET).">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page-news">
+  <!-- Navigation Header -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="logo.jpg" alt="CMET Logo" height="65"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link text-uppercase" href="index.html">HOME</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="ourWorkDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">OUR WORK</a>
+            <ul class="dropdown-menu" aria-labelledby="ourWorkDropdown">
+              <li><a class="dropdown-item" href="focus-areas.html">RESEARCH AREAS</a></li>
+              <li><a class="dropdown-item" href="labs.html">LABORATORIES</a></li>
+              <li><a class="dropdown-item" href="projects.html">PROJECTS</a></li>
+              <li><a class="dropdown-item" href="publications.html">PUBLICATIONS</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="researchTeamDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">RESEARCH TEAM</a>
+            <ul class="dropdown-menu" aria-labelledby="researchTeamDropdown">
+              <li><a class="dropdown-item" href="team-lead.html">TEAM LEAD</a></li>
+              <li><a class="dropdown-item" href="team-member.html">TEAM MEMBER</a></li>
+              <li><a class="dropdown-item" href="team-member.html#alumni">ALUMNI</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link text-uppercase active" href="news.html">NEWS</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="about.html">ABOUT US</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="opening.html">OPEN POSITIONS</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="contact.html">CONTACT US</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="gallery.html">GALLERY</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mt-5 pt-5">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="container d-flex justify-content-between align-items-center py-2">
+        <div class="fw-semibold">Centre for Mission on Energy Transition</div>
+        <div class="d-flex gap-3">
+          <a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank">Follow us on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Header Banner -->
+    <section class="py-5 bg-light position-relative overflow-hidden">
+      <div class="mesh-bg-overlay"></div>
+      <div class="container py-3">
+        <div class="row">
+          <div class="col-lg-8">
+            <span class="section-eyebrow">UPDATES &amp; EVENTS</span>
+            <h1 class="display-5 fw-bold text-blue">News &amp; Events</h1>
+            <p class="lead text-muted">Stay informed with the latest research updates, field pilots, workshops, and recruitment announcements from CMET.</p>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <button class="news-filter-btn active" data-category="All">All News</button>
+          <!-- Uncomment these filters when more event categories are added -->
+          <!-- <button class="news-filter-btn" data-category="Workshops">Workshops</button> -->
+          <!-- <button class="news-filter-btn" data-category="Pilots">Field Pilots</button> -->
+          <!-- <button class="news-filter-btn" data-category="Announcements">Announcements</button> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- News Cards Grid Section -->
+    <section class="py-6 bg-white">
+      <div class="container">
+        <div class="row g-4" id="news-grid-container">
+          <!-- Dynamic News Cards Injected Here via news.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Full News Detail Modal -->
+  <div class="modal fade" id="newsDetailModal" tabindex="-1" aria-labelledby="modalNewsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content news-modal-content">
+        <div class="modal-header border-0 pb-0 pt-4 px-4">
+          <div>
+            <span class="badge bg-teal-subtle text-teal fw-semibold rounded-pill px-3 py-2" id="modalNewsCategory" style="background: rgba(19, 122, 106, 0.1); color: var(--teal);"></span>
+            <span class="text-muted ms-2 small" id="modalNewsDate"></span>
+            <h3 class="modal-title text-blue fw-bold mt-2" id="modalNewsTitle"></h3>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="modalNewsGallery"></div>
+          <div id="modalNewsContent" class="news-full-writeup text-slate lead" style="font-size: 1.05rem; line-height: 1.7;"></div>
+        </div>
+        <div class="modal-footer border-0 px-4 pb-4 d-flex justify-content-between align-items-center">
+          <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3" id="modalPrevBtn">&larr; Previous Event</button>
+          <button type="button" class="btn btn-secondary btn-sm rounded-pill px-4" data-bs-dismiss="modal">Back to News</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3" id="modalNextBtn">Next Event &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <p>© CMET, MANIT Bhopal</p>
+      <p>cmet@manit.ac.in</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="news-data.js"></script>
+  <script src="news.js"></script>
+  <script src="scripts.js"></script>
+</body>
+
+</html>

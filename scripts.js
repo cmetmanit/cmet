@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Desktop-only dropdown hover enhancement for Bootstrap navbars.
   (function() {
     const desktopQuery = window.matchMedia('(min-width: 992px)');
-    const hoverDelay = 220;
+    const hoverDelay = 250;
     const dropdownItems = Array.from(document.querySelectorAll('.nav-item.dropdown'));
     const hoverState = new WeakMap();
 
@@ -77,46 +77,39 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    const clearTimers = state => {
-      if (state.openTimer) {
-        clearTimeout(state.openTimer);
-        state.openTimer = null;
-      }
-      if (state.closeTimer) {
-        clearTimeout(state.closeTimer);
-        state.closeTimer = null;
-      }
+    const clearTimers = function(state) {
+      if (state.openTimer) { clearTimeout(state.openTimer); state.openTimer = null; }
+      if (state.closeTimer) { clearTimeout(state.closeTimer); state.closeTimer = null; }
     };
 
-    const showDropdown = state => {
-      clearTimeout(state.closeTimer);
+    const showDropdown = function(state) {
+      clearTimers(state);
       if (!state.dropdownMenu.classList.contains('show')) {
-        state.openTimer = window.setTimeout(() => {
+        state.openTimer = setTimeout(function() {
           state.dropdownInstance.show();
         }, 50);
       }
     };
 
-    const hideDropdown = state => {
-      clearTimeout(state.openTimer);
-      state.closeTimer = window.setTimeout(() => {
-        if (!state.dropdownItem.matches(':hover')) {
+    const hideDropdown = function(state) {
+      if (state.openTimer) { clearTimeout(state.openTimer); state.openTimer = null; }
+      state.closeTimer = setTimeout(function() {
+        // Only close if cursor is not hovering the nav-item or the dropdown-menu
+        if (!state.dropdownItem.matches(':hover') && !state.dropdownMenu.matches(':hover')) {
           state.dropdownInstance.hide();
         }
       }, hoverDelay);
     };
 
-    const attachHover = (dropdownItem) => {
+    const attachHover = function(dropdownItem) {
       const trigger = dropdownItem.querySelector('[data-bs-toggle="dropdown"]');
       const menu = dropdownItem.querySelector('.dropdown-menu');
-      if (!trigger || !menu) {
-        return;
-      }
+      if (!trigger || !menu) return;
 
       const instance = window.bootstrap.Dropdown.getOrCreateInstance(trigger);
       const state = {
-        dropdownItem,
-        trigger,
+        dropdownItem: dropdownItem,
+        trigger: trigger,
         dropdownMenu: menu,
         dropdownInstance: instance,
         openTimer: null,
@@ -124,70 +117,119 @@ document.addEventListener('DOMContentLoaded', function () {
         mouseEnterHandler: null,
         mouseLeaveHandler: null,
         menuEnterHandler: null,
+        menuLeaveHandler: null
       };
       hoverState.set(dropdownItem, state);
 
-      state.mouseEnterHandler = () => {
-        if (!desktopQuery.matches) return;
-        showDropdown(state);
+      state.mouseEnterHandler = function() {
+        if (desktopQuery.matches) showDropdown(state);
       };
-      state.mouseLeaveHandler = () => {
-        if (!desktopQuery.matches) return;
-        hideDropdown(state);
+      state.mouseLeaveHandler = function() {
+        if (desktopQuery.matches) hideDropdown(state);
       };
-      state.menuEnterHandler = () => {
-        if (!desktopQuery.matches) return;
-        clearTimeout(state.closeTimer);
+      state.menuEnterHandler = function() {
+        if (desktopQuery.matches) {
+          clearTimeout(state.closeTimer);
+          state.closeTimer = null;
+        }
+      };
+      state.menuLeaveHandler = function() {
+        if (desktopQuery.matches) hideDropdown(state);
       };
 
       dropdownItem.addEventListener('mouseenter', state.mouseEnterHandler);
       dropdownItem.addEventListener('mouseleave', state.mouseLeaveHandler);
       menu.addEventListener('mouseenter', state.menuEnterHandler);
-      menu.addEventListener('mouseleave', state.mouseLeaveHandler);
+      menu.addEventListener('mouseleave', state.menuLeaveHandler);
     };
 
-    const detachHover = (dropdownItem) => {
+    const detachHover = function(dropdownItem) {
       const state = hoverState.get(dropdownItem);
       if (!state) return;
       clearTimers(state);
       dropdownItem.removeEventListener('mouseenter', state.mouseEnterHandler);
       dropdownItem.removeEventListener('mouseleave', state.mouseLeaveHandler);
       state.dropdownMenu.removeEventListener('mouseenter', state.menuEnterHandler);
-      state.dropdownMenu.removeEventListener('mouseleave', state.mouseLeaveHandler);
+      state.dropdownMenu.removeEventListener('mouseleave', state.menuLeaveHandler);
+      hoverState.delete(dropdownItem);
     };
 
-    const enableHover = () => {
-      dropdownItems.forEach(dropdownItem => {
-        const state = hoverState.get(dropdownItem);
-        if (state && state.mouseEnterHandler) {
-          return;
-        }
-        attachHover(dropdownItem);
+    const enableHover = function() {
+      dropdownItems.forEach(function(item) {
+        if (!hoverState.get(item)) attachHover(item);
       });
     };
 
-    const disableHover = () => {
-      dropdownItems.forEach(dropdownItem => {
-        detachHover(dropdownItem);
+    const disableHover = function() {
+      dropdownItems.forEach(function(item) {
+        detachHover(item);
       });
     };
 
-    const onDesktopChange = (event) => {
-      if (event.matches) {
-        enableHover();
-      } else {
-        disableHover();
-      }
-    };
-
-    if (desktopQuery.addEventListener) {
-      desktopQuery.addEventListener('change', onDesktopChange);
-    } else if (desktopQuery.addListener) {
-      desktopQuery.addListener(onDesktopChange);
-    }
+    desktopQuery.addEventListener('change', function(e) {
+      if (e.matches) { enableHover(); } else { disableHover(); }
+    });
 
     if (desktopQuery.matches) {
       enableHover();
     }
   })();
+
+  // IntersectionObserver for Scroll Reveal Animations
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  };
+
+  const revealObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        const countElements = entry.target.querySelectorAll('.count-up');
+        countElements.forEach(function(el) { animateCounter(el); });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  // Animated Counter Logic
+  function animateCounter(el) {
+    if (el.dataset.animated === 'true') return;
+    el.dataset.animated = 'true';
+
+    const target = parseInt(el.dataset.target, 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const frameDuration = 1000 / 60;
+    const totalFrames = Math.round(duration / frameDuration);
+
+    let frame = 0;
+    const counter = setInterval(function() {
+      frame++;
+      const progress = frame / totalFrames;
+      const currentCount = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+      el.textContent = prefix + currentCount + suffix;
+
+      if (frame === totalFrames) {
+        clearInterval(counter);
+        el.textContent = prefix + target + suffix;
+      }
+    }, frameDuration);
+  }
+
+  // Pause collaborator marquee animation on hover for user accessibility
+  const marquees = document.querySelectorAll('.collab-marquee');
+  marquees.forEach(function(m) {
+    m.addEventListener('mouseenter', function() {
+      m.style.animationPlayState = 'paused';
+    });
+    m.addEventListener('mouseleave', function() {
+      m.style.animationPlayState = 'running';
+    });
+  });
 });
