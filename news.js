@@ -58,7 +58,7 @@ function renderNewsGrid(category) {
 
     html += `
       <div class="col-md-6 col-lg-4">
-        <div class="news-card h-100 reveal reveal-slide-up" onclick="handleCardClick(event, '${item.id}', ${hasReadMore})">
+        <div class="news-card h-100 reveal active reveal-slide-up" onclick="handleCardClick(event, '${item.id}', ${hasReadMore})">
           <div class="news-card-img-wrap">
             <img src="${escapeHTML(item.featuredImage)}" alt="${escapeHTML(item.title)}" loading="lazy" class="news-card-img">
             ${catBadge}
@@ -75,6 +75,7 @@ function renderNewsGrid(category) {
   });
 
   container.innerHTML = html;
+  container.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
 }
 
 /**
@@ -190,7 +191,7 @@ function renderHomepageLatestNews() {
 
     html += `
       <div class="col-md-6 col-lg-4">
-        <div class="news-card h-100 reveal reveal-slide-up" onclick="handleHomepageNewsClick(event, '${item.id}')">
+        <div class="news-card h-100 reveal active reveal-slide-up" onclick="handleHomepageNewsClick(event, '${item.id}')">
           <div class="news-card-img-wrap">
             <img src="${escapeHTML(item.featuredImage)}" alt="${escapeHTML(item.title)}" loading="lazy" class="news-card-img">
             <span class="news-card-category">${escapeHTML(item.category || 'Latest')}</span>
@@ -207,6 +208,7 @@ function renderHomepageLatestNews() {
   });
 
   container.innerHTML = html;
+  container.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
 }
 
 function handleHomepageNewsClick(event, newsId) {

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -568,14 +568,15 @@
   <script src="scripts.js"></script>
   <script src="news-data.js"></script>
   <script>
-    // Render Interactive Compact Split News Bulletin on Homepage â€” reads from CMET_NEWS_DATA (news-data.js)
+    // Render Interactive Compact Split News Bulletin on Homepage — reads from CMET_NEWS_DATA (news-data.js)
     (function() {
       var container = document.getElementById('hp-news-split-container');
       if (!container || typeof CMET_NEWS_DATA === 'undefined' || !CMET_NEWS_DATA.length) return;
 
       var allNews = CMET_NEWS_DATA;
+      var displayNews = allNews.slice(0, 3); // Limit to top 3 latest news items on homepage
       var featuredIndex = 0;
-      var featured = allNews[0];
+      var featured = displayNews[0];
 
       // Featured Card HTML (Left side)
       var leftHtml = '<div class="col-lg-7 col-md-12">'
@@ -587,12 +588,12 @@
         +     '</div>'
         +     '<div class="hp-featured-body">'
         +       '<div class="hp-news-meta">'
-        +         '<span class="hp-news-cat" id="hp-featured-cat">' + (featured.category || 'NEWs') + '</span>'
+        +         '<span class="hp-news-cat" id="hp-featured-cat">' + (featured.category || 'NEWS') + '</span>'
         +         '<span class="hp-news-date" id="hp-featured-date">' + (featured.date || '') + '</span>'
         +       '</div>'
         +       '<h4 class="hp-featured-title" id="hp-featured-title">' + (featured.title || '') + '</h4>'
         +       '<p class="hp-featured-desc" id="hp-featured-desc">' + (featured.shortDescription || 'Click to view event details and photos.') + '</p>'
-        +       '<span class="hp-news-readmore">Read Full story &rarr;</span>'
+        +       '<span class="hp-news-readmore">Read Full Story &rarr;</span>'
         +     '</div>'
         +   '</div>'
         + '</a>'
@@ -600,9 +601,9 @@
 
       // Headlines List HTML (Right side)
       var listItemsHtml = '';
-      allNews.forEach(function(item, idx) {
-        var catTag = item.category &bull; '<span class="hp-headline-cat">' + item.category + '</span>' : '';
-        var activeClass = idx === 0 &bull; ' active' : '';
+      displayNews.forEach(function(item, idx) {
+        var catTag = item.category ? '<span class="hp-headline-cat">' + item.category + '</span>' : '';
+        var activeClass = idx === 0 ? ' active' : '';
         listItemsHtml += '<a href="news.html" class="hp-headline-item' + activeClass + '" data-news-idx="' + idx + '">'
           + '<div class="hp-headline-meta">' + catTag + '<span class="hp-headline-date">' + (item.date || '') + '</span></div>'
           + '<h5 class="hp-headline-title">' + (item.title || '') + '</h5>'
@@ -626,7 +627,7 @@
       container.innerHTML = leftHtml + rightHtml;
 
       // Add Hover listener to update Featured card dynamically on hover
-      var headlineItems = container.queryselectorAll('.hp-headline-item');
+      var headlineItems = container.querySelectorAll('.hp-headline-item');
       var contentWrap = document.getElementById('hp-featured-content-wrap');
       var imgElem = document.getElementById('hp-featured-img');
       var badgeElem = document.getElementById('hp-featured-badge');
@@ -644,14 +645,14 @@
           headlineItems.forEach(function(el) { el.classList.remove('active'); });
           this.classList.add('active');
 
-          var targetData = allNews[idx];
+          var targetData = displayNews[idx];
 
           contentWrap.classList.add('fade-out');
           setTimeout(function() {
             imgElem.src = targetData.featuredImage || '';
             imgElem.alt = targetData.title || '';
-            badgeElem.textContent = idx === 0 &bull; 'FEATURED' : 'LATEsT';
-            catElem.textContent = targetData.category || 'NEWs';
+            badgeElem.textContent = idx === 0 ? 'FEATURED' : 'LATEST';
+            catElem.textContent = targetData.category || 'NEWS';
             dateElem.textContent = targetData.date || '';
             titleElem.textContent = targetData.title || '';
             descElem.textContent = targetData.shortDescription || 'Click to view event details and photos.';

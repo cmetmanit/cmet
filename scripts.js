@@ -176,26 +176,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })();
 
-  // IntersectionObserver for Scroll Reveal Animations
-  const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -40px 0px'
-  };
-
-  const revealObserver = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        const countElements = entry.target.querySelectorAll('.count-up');
-        countElements.forEach(function(el) { animateCounter(el); });
-        observer.unobserve(entry.target);
-      }
+  // IntersectionObserver for Scroll Reveal Animations with Fallback
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('active');
     });
-  }, observerOptions);
+  } else {
+    const observerOptions = {
+      threshold: 0.05,
+      rootMargin: '0px 0px -20px 0px'
+    };
 
-  document.querySelectorAll('.reveal').forEach(function(el) {
-    revealObserver.observe(el);
-  });
+    const revealObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          const countElements = entry.target.querySelectorAll('.count-up');
+          countElements.forEach(function(el) { animateCounter(el); });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  }
 
   // Animated Counter Logic
   function animateCounter(el) {
