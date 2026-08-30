@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   const path = window.location.pathname.split('/').pop();
   document.querySelectorAll('.nav-link').forEach(function (link) {
-    if (link.getAttribute('href') === path || (path === '' && link.getAttribute('href') === 'index.html')) {
+    const href = link.getAttribute('href');
+    if (href === path || ((path === '' || path === '/' || path === 'index.html') && href === 'index.html')) {
       link.classList.add('active');
     }
   });

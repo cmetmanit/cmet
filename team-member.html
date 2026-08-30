@@ -1,245 +1,588 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CMET | Team Member</title>
+  <title>CMET | Team Members</title>
+  <meta name="description" content="Researchers, scholars, and advisory board members contributing to the mission of CMET MANIT Bhopal.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="page-team">
+
+<body class="page-team-member">
+  <!-- Navigation Header -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html"><img src="logo.jpg" alt="CMET Logo" height="65"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link text-uppercase" href="index.html">HOME</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="ourWorkDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">OUR WORK</a>
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="ourWorkDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">OUR WORK</a>
             <ul class="dropdown-menu" aria-labelledby="ourWorkDropdown">
-              <li><a class="dropdown-item" href="focus-areas.html">RESEARCH AREAS</a></li>
-              <li><a class="dropdown-item" href="labs.html">LABORATORIES</a></li>
-              <li><a class="dropdown-item" href="projects.html">PROJECTS</a></li>
-              <li><a class="dropdown-item" href="publications.html">PUBLICATIONS</a></li>
+              <li><a class="dropdown-item" href="focus-areas.html">RESEARCH AREAs</a></li>
+              <li><a class="dropdown-item" href="labs.html">LABORATORIEs</a></li>
+              <li><a class="dropdown-item" href="projects.html">PROJECTs</a></li>
+              <li><a class="dropdown-item" href="publications.html">PUBLICATIONs</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="researchTeamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">RESEARCH TEAM</a>
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="researchTeamDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">RESEARCH TEAM</a>
             <ul class="dropdown-menu" aria-labelledby="researchTeamDropdown">
               <li><a class="dropdown-item" href="team-lead.html">TEAM LEAD</a></li>
               <li><a class="dropdown-item" href="team-member.html">TEAM MEMBER</a></li>
               <li><a class="dropdown-item" href="team-member.html#alumni">ALUMNI</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="news.html">NEWS</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="about.html">ABOUT US</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="opening.html">OPEN POSITIONS</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="contact.html">CONTACT US</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="news.html">NEWs</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="about.html">ABOUT Us</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="opening.html">OPEN POsITIONs</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="contact.html">CONTACT Us</a></li>
           <li class="nav-item"><a class="nav-link text-uppercase" href="gallery.html">GALLERY</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <main class="mt-5 pt-5 pb-5">
-    <section class="container py-5">
-      <div class="row mb-4">
-        <div class="col-lg-8">
-          <h1 class="section-heading">Team Member</h1>
-          <p class="section-subtitle">Researchers and scholars contributing to CMET's mission and impact.</p>
-        </div>
+<main class="mt-5 pt-5 pb-5">
+    <div class="container pt-3">
+      <!-- Quick Navigation Filter -->
+      <div class="team-filter-nav">
+        <a href="#researchers" class="team-filter-btn active">
+          All Researchers <span class="count-pill">8</span>
+        </a>
+        <a href="#advisory-board" class="team-filter-btn">
+          Advisory Board <span class="count-pill">11</span>
+        </a>
+        <a href="#alumni" class="team-filter-btn">
+          Alumni
+        </a>
       </div>
 
-      <div class="row mb-4">
-        <div class="col-lg-12">
-          <h2 class="section-heading mb-0">Research Scholars &amp; Team Members</h2>
+      <!-- Research Scholars & Team Members Section -->
+      <section id="researchers" class="mb-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <h2 class="section-heading mb-1">Research Scholars &amp; Fellows</h2>
+            <p class="text-muted mb-0">Scholars leading specialized research across microgrids, transmission, and distribution planning.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="gallery-grid mb-5">
-        <div class="team-member-card">
-          <img src="picture/Team/Ms. Naureen Siddiqui.png" alt="Ms. Naureen Siddiqui" class="team-member-image">
-          <div class="team-member-info">
-            <div class="team-member-name">Ms. Naureen Siddiqui</div>
-            <div class="team-member-title">Ph.D. Scholar</div>
-            <div class="team-member-details">
-              <p><strong>Microgrid Planning</strong></p>
-              <p>Operational planning frameworks for active and reactive power management for grid-connected microgrids.</p>
-              <p><strong>Research area:</strong> Power system management, grid-connected microgrid, operational planning, distributed energy resources integration, BESS and solar</p>
-              <p>Maulana Azad National Institute of Technology (MANIT), Bhopal</p>
-              <p class="mb-0"><strong>Email:</strong> <a href="mailto:naureen239@gmail.com">naureen239@gmail.com</a></p>
-              <p class="mt-2 mb-0"><a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">LinkedIn Profile &rarr;</a></p>
+        <div class="team-grid-fresh">
+          <!-- Member 1: Dr. Narayan Prasad Gupta -->
+          <article class="member-card-fresh">
+            <div class="member-media-box">
+              <img src="picture/Team/narayan.jpg" alt="Dr. Narayan Prasad Gupta" loading="lazy">
+              <span class="member-badge-float phd">🎓 Ph.D. &bull; SRA</span>
             </div>
-          </div>
-        </div>
-        <div class="team-member-card">
-          <img src="picture/Team/Mr Swapnil Kumar Sahu.png" alt="Mr. Swapnil Kumar Sahu" class="team-member-image">
-          <div class="team-member-info">
-            <div class="team-member-name">Mr. Swapnil Kumar Sahu</div>
-            <div class="team-member-title">Ph.D. Scholar</div>
-            <div class="team-member-details">
-              <p><strong>Transmission Planning</strong></p>
-              <p>Determination of headroom in transmission network.</p>
-              <p><strong>Research area:</strong> Power system management, grid-connected microgrid, operational planning, distributed energy resources integration, BESS and solar</p>
-              <p>Maulana Azad National Institute of Technology (MANIT), Bhopal</p>
-              <p class="mb-0"><strong>Email:</strong> <a href="mailto:swapnilkumarsahu11@gmail.com">swapnilkumarsahu11@gmail.com</a></p>
-              <p class="mt-2 mb-0"><a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">LinkedIn Profile &rarr;</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="team-member-card">
-          <img src="picture/Team/Mr. Rahul Soni.png" alt="Mr. Rahul Soni" class="team-member-image">
-          <div class="team-member-info">
-            <div class="team-member-name">Mr. Rahul Soni</div>
-            <div class="team-member-title">Research Fellow</div>
-            <div class="team-member-details">
-              <p><strong>Transmission Planning</strong></p>
-              <p>M.Tech, Maulana Azad National Institute of Technology, Bhopal (2020)</p>
-              <p><strong>Research area:</strong> Power system networking using PSSE, EV converter design, Electric drives, microgrid control algorithm</p>
-              <p class="mb-0"><strong>Email:</strong> <a href="mailto:rahulsoni.vn06@gmail.com">rahulsoni.vn06@gmail.com</a></p>
-              <p class="mt-2 mb-0"><a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">LinkedIn Profile &rarr;</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="team-member-card">
-          <img src="picture/Team/Ms. Reeha Chouhan.png" alt="Ms. Reeha Chouhan" class="team-member-image">
-          <div class="team-member-info">
-            <div class="team-member-name">Ms. Reeha Chouhan</div>
-            <div class="team-member-title">Research Fellow</div>
-            <div class="team-member-details">
-              <p><strong>Distribution system planning</strong></p>
-              <p>M.Tech, RGPV (2024)</p>
-              <p><strong>Research area:</strong> Distribution system planning (loss estimation) and renewable energy integration, power system modelling, data-driven decision-making</p>
-              <p class="mb-0"><strong>Email:</strong> <a href="mailto:reehachouhan17@gmail.com">reehachouhan17@gmail.com</a></p>
-              <p class="mt-2 mb-0"><a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">LinkedIn Profile &rarr;</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="team-member-card">
-          <img src="picture/Team/Ms. Mantasha Alam.png" alt="Ms. Mantasha Alam" class="team-member-image">
-          <div class="team-member-info">
-            <div class="team-member-name">Ms. Mantasha Alam</div>
-            <div class="team-member-title">Research Fellow</div>
-            <div class="team-member-details">
-              <p><strong>Distribution System Planning</strong></p>
-              <p>B.Tech, RGPV (2023)</p>
-              <p>M.Tech (Integrated Power Systems), Maulana Azad National Institute of Technology, Bhopal (Ongoing, expected June 2026)</p>
-              <p><strong>Research area:</strong> Microgrid operation, smart-grid analysis, hosting capacity assessment, distribution grid controlling from inverter, demand response and cyber security</p>
-              <p class="mb-0"><strong>Email:</strong> <a href="mailto:mantashaalam2@gmail.com">mantashaalam2@gmail.com</a></p>
-              <p class="mt-2 mb-0"><a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">LinkedIn Profile &rarr;</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="team-member-card">
-          <img src="picture/Team/Dr. Shweta Mehroliya.jpg" alt="Dr. Shweta Mehroliya" class="team-member-image">
-          <div class="team-member-info">
-            <div class="team-member-name">Dr. Shweta Mehroliya</div>
-            <div class="team-member-title">Research Fellow</div>
-            <div class="team-member-details">
-              <p><strong>Power System restoration</strong></p>
-              <p>PhD (Optimal Service Restoration in Radial Distribution Systems employing Renewable Distributed Generators)</p>
-              <p><strong>Research area:</strong> Power System restoration, Renewable Distributed Generators, Microgrid, Planning and optimization of power systems</p>
-              <p>Maulana Azad National Institute of Technology (MANIT), Bhopal</p>
-              <p class="mb-0"><strong>Email:</strong> <a href="mailto:shwetamehroliya12@gmail.com">shwetamehroliya12@gmail.com</a></p>
-              <p class="mt-2 mb-0"><a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">LinkedIn Profile &rarr;</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="team-member-card">
-          <img src="picture/Team/Mr. Gautam Kumar Yadav.jpg" alt="Mr. Gautam Kumar Yadav" class="team-member-image">
-          <div class="team-member-info">
-            <div class="team-member-name">Mr. Gautam Kumar Yadav</div>
-            <div class="team-member-title">Research Fellow</div>
-            <div class="team-member-details">
-              <p><strong>Microgrid Protection</strong></p>
-              <p>Ph.D. (Design and analysis of protection technique for microgrid)</p>
-              <p><strong>Research area:</strong> Power system protection, renewable integration, microgrid planning</p>
-              <p>Maulana Azad National Institute of Technology (MANIT), Bhopal</p>
-              <p class="mb-0"><strong>Email:</strong> <a href="mailto:gautamyadav542@gmail.com">gautamyadav542@gmail.com</a></p>
-              <p class="mt-2 mb-0"><a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">LinkedIn Profile &rarr;</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
+            <div class="member-card-body">
+              <span class="member-domain-chip">Microgrids &amp; Smart Grids</span>
+              <h3 class="member-card-name">Dr. Narayan Prasad Gupta</h3>
+              <div class="member-card-role-sub">Senior Research Associate (SRA) &bull; Ph.D.</div>
+              
+              <div class="member-synopsis">
+                Intelligent control of microgrids and smart grids, power-electronic converters and drives, renewable energy integration, battery energy storage systems, power quality improvement, and electric vehicle technologies for reliable and sustainable power-system operation.
+              </div>
 
-      <div class="row mb-4">
-        <div class="col-lg-12">
-          <h2 class="section-heading">Advisory Board</h2>
-          <p>The Centre for Mission on Energy Transition (CMET) is envisioned as a high-impact institutional platform combining policy, modelling, and implementation expertise. The Advisory Board of CMET brings together leading experts from academia, industry, utilities, and regulatory institutions to ensure that CMET's work remains technically robust, policy-relevant, and aligned with emerging sectoral needs.</p>
+              <div class="member-section-label">Research Areas</div>
+              <div class="member-tags-row">
+                <span class="member-tag-pill">Intelligent Microgrid Control</span>
+                <span class="member-tag-pill">Smart Grids</span>
+                <span class="member-tag-pill">Power Converters &amp; Drives</span>
+                <span class="member-tag-pill">Renewable Integration</span>
+                <span class="member-tag-pill">BESS &amp; Power Quality</span>
+                <span class="member-tag-pill">EV Technologies</span>
+              </div>
+
+              <div class="member-affiliation-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Maulana Azad National Institute of Technology (MANIT), Bhopal</span>
+              </div>
+
+              <div class="member-action-strip">
+                <a href="mailto:narayangupta.manit@gmail.com" class="btn-member-action email" title="Email Dr. Narayan Prasad Gupta">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  Email
+                </a>
+                <a href="https://www.linkedin.com/in/dr-narayan-gupta" target="_blank" rel="noopener noreferrer" class="btn-member-action linkedin" title="LinkedIn Profile">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.78c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Member 2: Rishab Ranjan -->
+          <article class="member-card-fresh">
+            <div class="member-media-box">
+              <img src="picture/Team/rishabh_ranjan.jpeg" alt="Rishab Ranjan" loading="lazy">
+              <span class="member-badge-float fellow">🔬 Senior Associate</span>
+            </div>
+            <div class="member-card-body">
+              <span class="member-domain-chip">Power System</span>
+              <h3 class="member-card-name">Rishab Ranjan</h3>
+              <div class="member-card-role-sub">Senior Research Associate</div>
+              
+              <div class="member-synopsis">
+                Specialization in Power System analysis, grid management, and clean energy transition strategies.
+              </div>
+
+              <div class="member-section-label">Research Areas</div>
+              <div class="member-tags-row">
+                <span class="member-tag-pill">Power System</span>
+                <span class="member-tag-pill">Grid Management</span>
+                <span class="member-tag-pill">Energy Transition</span>
+              </div>
+
+              <div class="member-affiliation-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Maulana Azad National Institute of Technology (MANIT), Bhopal</span>
+              </div>
+
+              <div class="member-action-strip">
+                <a href="mailto:rishabh.cmet@gmail.com" class="btn-member-action email" title="Email Rishab Ranjan">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  Email
+                </a>
+                <a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" rel="noopener noreferrer" class="btn-member-action linkedin" title="LinkedIn Profile">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.78c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Member 2: Ms. Naureen Siddiqui -->
+          <article class="member-card-fresh">
+            <div class="member-media-box">
+              <img src="picture/Team/Ms. Naureen siddiqui.png" alt="Ms. Naureen Siddiqui" loading="lazy">
+              <span class="member-badge-float phd">🎓 Ph.D. Scholar</span>
+            </div>
+            <div class="member-card-body">
+              <span class="member-domain-chip">Microgrid Planning</span>
+              <h3 class="member-card-name">Ms. Naureen Siddiqui</h3>
+              <div class="member-card-role-sub">Ph.D. Scholar &bull; Electrical Engineering</div>
+              
+              <div class="member-synopsis">
+                Operational planning frameworks for active and reactive power management for grid-connected microgrids.
+              </div>
+
+              <div class="member-section-label">Research Areas</div>
+              <div class="member-tags-row">
+                <span class="member-tag-pill">Power System Management</span>
+                <span class="member-tag-pill">Grid-Connected Microgrid</span>
+                <span class="member-tag-pill">Operational Planning</span>
+                <span class="member-tag-pill">DER Integration</span>
+                <span class="member-tag-pill">BESS &amp; Solar</span>
+              </div>
+
+              <div class="member-affiliation-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Maulana Azad National Institute of Technology (MANIT), Bhopal</span>
+              </div>
+
+              <div class="member-action-strip">
+                <a href="mailto:naureen239@gmail.com" class="btn-member-action email" title="Email Naureen Siddiqui">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  Email
+                </a>
+                <a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" rel="noopener noreferrer" class="btn-member-action linkedin" title="LinkedIn Profile">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.78c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Member 2: Mr. Swapnil Kumar Sahu -->
+          <article class="member-card-fresh">
+            <div class="member-media-box">
+              <img src="picture/Team/Mr swapnil Kumar sahu.png" alt="Mr. Swapnil Kumar Sahu" loading="lazy">
+              <span class="member-badge-float phd">🎓 Ph.D. Scholar</span>
+            </div>
+            <div class="member-card-body">
+              <span class="member-domain-chip">Transmission Planning</span>
+              <h3 class="member-card-name">Mr. Swapnil Kumar Sahu</h3>
+              <div class="member-card-role-sub">Ph.D. Scholar &bull; Transmission Systems</div>
+              
+              <div class="member-synopsis">
+                Determination of headroom, capacity analysis, and congestion mitigation in transmission networks.
+              </div>
+
+              <div class="member-section-label">Research Areas</div>
+              <div class="member-tags-row">
+                <span class="member-tag-pill">Power System Management</span>
+                <span class="member-tag-pill">Grid-Connected Microgrid</span>
+                <span class="member-tag-pill">Operational Planning</span>
+                <span class="member-tag-pill">DER Integration</span>
+                <span class="member-tag-pill">BESS &amp; Solar</span>
+              </div>
+
+              <div class="member-affiliation-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Maulana Azad National Institute of Technology (MANIT), Bhopal</span>
+              </div>
+
+              <div class="member-action-strip">
+                <a href="mailto:swapnilkumarsahu11@gmail.com" class="btn-member-action email" title="Email Swapnil Kumar Sahu">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  Email
+                </a>
+                <a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" rel="noopener noreferrer" class="btn-member-action linkedin" title="LinkedIn Profile">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.78c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Member 3: Mr. Rahul Soni -->
+          <article class="member-card-fresh">
+            <div class="member-media-box">
+              <img src="picture/Team/Mr. Rahul soni.png" alt="Mr. Rahul Soni" loading="lazy">
+              <span class="member-badge-float fellow">🔬 Research Fellow</span>
+            </div>
+            <div class="member-card-body">
+              <span class="member-domain-chip">Transmission Planning</span>
+              <h3 class="member-card-name">Mr. Rahul Soni</h3>
+              <div class="member-card-role-sub">Research Fellow &bull; M.Tech MANIT (2020)</div>
+              
+              <div class="member-synopsis">
+                Power system networking with PSSE, EV converter topology design, and microgrid control algorithm implementation.
+              </div>
+
+              <div class="member-section-label">Research Areas</div>
+              <div class="member-tags-row">
+                <span class="member-tag-pill">PSSE Networking</span>
+                <span class="member-tag-pill">EV Converter Design</span>
+                <span class="member-tag-pill">Electric Drives</span>
+                <span class="member-tag-pill">Microgrid Control</span>
+              </div>
+
+              <div class="member-affiliation-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Maulana Azad National Institute of Technology (MANIT), Bhopal</span>
+              </div>
+
+              <div class="member-action-strip">
+                <a href="mailto:rahulsoni.vn06@gmail.com" class="btn-member-action email" title="Email Rahul Soni">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  Email
+                </a>
+                <a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" rel="noopener noreferrer" class="btn-member-action linkedin" title="LinkedIn Profile">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.78c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Member 4: Ms. Reeha Chouhan -->
+          <article class="member-card-fresh">
+            <div class="member-media-box">
+              <img src="picture/Team/Ms. Reeha Chouhan.png" alt="Ms. Reeha Chouhan" loading="lazy">
+              <span class="member-badge-float fellow">🔬 Research Fellow</span>
+            </div>
+            <div class="member-card-body">
+              <span class="member-domain-chip">Distribution System Planning</span>
+              <h3 class="member-card-name">Ms. Reeha Chouhan</h3>
+              <div class="member-card-role-sub">Research Fellow &bull; M.Tech RGPV (2024)</div>
+              
+              <div class="member-synopsis">
+                Distribution system planning, loss estimation frameworks, and renewable energy integration analysis.
+              </div>
+
+              <div class="member-section-label">Research Areas</div>
+              <div class="member-tags-row">
+                <span class="member-tag-pill">Distribution Planning</span>
+                <span class="member-tag-pill">Loss Estimation</span>
+                <span class="member-tag-pill">Renewable Integration</span>
+                <span class="member-tag-pill">Power System Modelling</span>
+                <span class="member-tag-pill">Data Analytics</span>
+              </div>
+
+              <div class="member-affiliation-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV) &bull; CMET MANIT</span>
+              </div>
+
+              <div class="member-action-strip">
+                <a href="mailto:reehachouhan17@gmail.com" class="btn-member-action email" title="Email Reeha Chouhan">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  Email
+                </a>
+                <a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" rel="noopener noreferrer" class="btn-member-action linkedin" title="LinkedIn Profile">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.78c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Member 5: Ms. Mantasha Alam -->
+          <article class="member-card-fresh">
+            <div class="member-media-box">
+              <img src="picture/Team/Ms. Mantasha Alam.png" alt="Ms. Mantasha Alam" loading="lazy">
+              <span class="member-badge-float fellow">🔬 Research Fellow</span>
+            </div>
+            <div class="member-card-body">
+              <span class="member-domain-chip">Distribution System Planning</span>
+              <h3 class="member-card-name">Ms. Mantasha Alam</h3>
+              <div class="member-card-role-sub">Research Fellow &bull; M.Tech MANIT (Ongoing)</div>
+              
+              <div class="member-synopsis">
+                Microgrid operations, hosting capacity assessment, and inverter-based distribution grid control.
+              </div>
+
+              <div class="member-section-label">Research Areas</div>
+              <div class="member-tags-row">
+                <span class="member-tag-pill">Microgrid Operation</span>
+                <span class="member-tag-pill">Smart-Grid Analysis</span>
+                <span class="member-tag-pill">Hosting Capacity</span>
+                <span class="member-tag-pill">Inverter Control</span>
+                <span class="member-tag-pill">Demand Response</span>
+                <span class="member-tag-pill">Cybersecurity</span>
+              </div>
+
+              <div class="member-affiliation-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Maulana Azad National Institute of Technology (MANIT), Bhopal</span>
+              </div>
+
+              <div class="member-action-strip">
+                <a href="mailto:mantashaalam2@gmail.com" class="btn-member-action email" title="Email Mantasha Alam">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  Email
+                </a>
+                <a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" rel="noopener noreferrer" class="btn-member-action linkedin" title="LinkedIn Profile">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.78c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Member 6: Mr. Gautam Kumar Yadav -->
+          <article class="member-card-fresh">
+            <div class="member-media-box">
+              <img src="picture/Team/Mr. Gautam Kumar Yadav.jpg" alt="Mr. Gautam Kumar Yadav" loading="lazy">
+              <span class="member-badge-float fellow">🔬 Research Fellow</span>
+            </div>
+            <div class="member-card-body">
+              <span class="member-domain-chip">Microgrid Protection</span>
+              <h3 class="member-card-name">Mr. Gautam Kumar Yadav</h3>
+              <div class="member-card-role-sub">Research Fellow &bull; Protection Engineering</div>
+              
+              <div class="member-synopsis">
+                Design and analysis of protective relaying techniques and fault management for renewable microgrids.
+              </div>
+
+              <div class="member-section-label">Research Areas</div>
+              <div class="member-tags-row">
+                <span class="member-tag-pill">Power System Protection</span>
+                <span class="member-tag-pill">Renewable Integration</span>
+                <span class="member-tag-pill">Microgrid Planning</span>
+                <span class="member-tag-pill">Fault Dynamics</span>
+              </div>
+
+              <div class="member-affiliation-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Maulana Azad National Institute of Technology (MANIT), Bhopal</span>
+              </div>
+
+              <div class="member-action-strip">
+                <a href="mailto:gautamyadav542@gmail.com" class="btn-member-action email" title="Email Gautam Kumar Yadav">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  Email
+                </a>
+                <a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" rel="noopener noreferrer" class="btn-member-action linkedin" title="LinkedIn Profile">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.78c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Shri Upendra Tripathy</strong><br>Advisory Member<br>First and founding Director General of the International Solar Alliance (ISA) and former Secretary, Ministry of New and Renewable Energy (MNRE), Government of India.</p>
+      </section>
+
+      <!-- Advisory Board Section -->
+      <section id="advisory-board" class="mb-5">
+        <div class="advisory-header-box">
+          <span class="section-eyebrow mb-2" style="background: rgba(255,255,255,0.15); color: #fff;">Strategic Guidance</span>
+          <h2>Advisory Board</h2>
+          <p>The Centre for Mission on Energy Transition (CMET) brings together distinguished leaders from academia, industry, utilities, and regulatory institutions to ensure research remains technically robust, policy-relevant, and aligned with emerging sectoral transformation.</p>
+        </div>
+
+        <div class="advisory-grid-fresh">
+          <!-- Advisory Member 1 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">UT</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Shri Upendra Tripathy</h3>
+                <span class="advisory-role-badge">Advisory Member</span>
+              </div>
+            </div>
+            <p class="advisory-desc">First and founding Director General of the International Solar Alliance (ISA) and former Secretary, Ministry of New and Renewable Energy (MNRE), Government of India.</p>
+          </article>
+
+          <!-- Advisory Member 2 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">VI</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Shri S. Vijay Iyer</h3>
+                <span class="advisory-role-badge">International Clean Energy</span>
+              </div>
+            </div>
+            <p class="advisory-desc">Former Vice President, Multilateral Investment Guarantee Agency (MIGA), World Bank Group. Former Global Director, Energy Policy and Practice, World Bank.</p>
+          </article>
+
+          <!-- Advisory Member 3 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">MS</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Shri Manu Srivastava</h3>
+                <span class="advisory-role-badge">Technical &amp; Strategy</span>
+              </div>
+            </div>
+            <p class="advisory-desc">A nationally recognized renewable energy leader with a proven record of designing and implementing large-scale RE projects, and prior leadership in Madhya Pradesh.</p>
+          </article>
+
+          <!-- Advisory Member 4 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">KS</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Dr. Karunesh Kumar Shukla</h3>
+                <span class="advisory-role-badge">Institutional Member</span>
+              </div>
+            </div>
+            <p class="advisory-desc">Director, Maulana Azad National Institute of Technology (MANIT), Bhopal &mdash; Ex-officio Member.</p>
+          </article>
+
+          <!-- Advisory Member 5 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">AP</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Dr. Amit Kumar Singh Parihar</h3>
+                <span class="advisory-role-badge">Policy &amp; Planning</span>
+              </div>
+            </div>
+            <p class="advisory-desc">Lead, Strategic Insight Units, Energiva Ventures.</p>
+          </article>
+
+          <!-- Advisory Member 6 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">SS</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Shri Sushil Kumar Soonee</h3>
+                <span class="advisory-role-badge">System Operations &amp; Market Design</span>
+              </div>
+            </div>
+            <p class="advisory-desc">Former and founding CEO of POSOCO (now Grid-India) with four decades of experience in power system operations, commercial &amp; regulatory affairs, and market development.</p>
+          </article>
+
+          <!-- Advisory Member 7 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">TT</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Dr. Tripta Thakur</h3>
+                <span class="advisory-role-badge">Capacity Building</span>
+              </div>
+            </div>
+            <p class="advisory-desc">Vice Chancellor, Uttarakhand Technical University. Expert in institutional strengthening and power system capacity building.</p>
+          </article>
+
+          <!-- Advisory Member 8 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">AP</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Dr. Amol Phadke</h3>
+                <span class="advisory-role-badge">IRP &amp; RE Planning</span>
+              </div>
+            </div>
+            <p class="advisory-desc">Adjunct Associate Professor, University of California, Berkeley. Faculty Director, India Energy and Climate Center.</p>
+          </article>
+
+          <!-- Advisory Member 9 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">NA</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Dr. Nikit Abhyankar</h3>
+                <span class="advisory-role-badge">IRP &amp; Procurement</span>
+              </div>
+            </div>
+            <p class="advisory-desc">Co-Faculty Director, India Energy &amp; Climate Centre; Associate Adjunct Professor, Goldman School of Public Policy (GSPP), UC Berkeley.</p>
+          </article>
+
+          <!-- Advisory Member 10 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">RD</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Dr. Ranjit Deshmukh</h3>
+                <span class="advisory-role-badge">Energy Systems &amp; Economics</span>
+              </div>
+            </div>
+            <p class="advisory-desc">Associate Professor, Bren School of Environmental Science and Management, University of California, Santa Barbara.</p>
+          </article>
+
+          <!-- Advisory Member 11 -->
+          <article class="advisory-card-fresh">
+            <div class="advisory-top-meta">
+              <div class="advisory-avatar-mono">ZR</div>
+              <div class="advisory-title-wrap">
+                <h3 class="advisory-name">Prof. Zakir Hussain Rather</h3>
+                <span class="advisory-role-badge">Grid Storage &amp; Planning</span>
+              </div>
+            </div>
+            <p class="advisory-desc">Department of Energy Science and Engineering, Indian Institute of Technology (IIT) Bombay Powai.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Alumni Section Anchor -->
+      <section id="alumni" class="mb-5 pt-3">
+        <div class="alumni-card-box">
+          <div class="d-inline-flex align-items-center justify-content-center p-3 rounded-circle bg-white shadow-sm mb-3 text-teal">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#137a6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3>CMET Alumni Network</h3>
+          <p>Scholars and researchers who have contributed to CMET projects continue to create impact in academia, global research labs, and clean-tech innovation worldwide.</p>
+          <div class="mt-3">
+            <a href="contact.html" class="btn btn-outline-primary btn-sm rounded-pill px-4">Connect with CMET &rarr;</a>
           </div>
         </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Shri S. Vijay Iyer</strong><br>Advisory Member, International Clean Energy Transition<br>Former Vice President, Multilateral Investment Guarantee Agency (MIGA), World Bank Group. Former Global Director, Energy Policy and Practice, World Bank.</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Shri Manu Srivastava</strong><br>Advisory Member (Technical &amp; Strategy)<br>A nationally recognized renewable energy leader with a proven record of designing and implementing large-scale RE projects, and prior involvement in Madhya Pradesh.</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Dr. Karunesh Kumar Shukla</strong><br>Institutional Member<br>Director, MANIT Bhopal &mdash; Ex-officio Member</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Dr. Amit Kumar Singh Parihar</strong><br>Advisory Member (Policy and Planning)<br>Lead, Strategic Insight Units, Energiva Ventures</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Shri Sushil Kumar Soonee</strong><br>Advisory Member (System Operations &amp; Market Design)<br>Former and founding CEO of POSOCO (now Grid-India) with four decades of experience in power system operations, commercial and regulatory affairs, and market development.</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Dr. Tripta Thakur</strong><br>Advisory Member (Capacity Building &amp; Institutional Strengthening)<br>Vice Chancellor, Uttarakhand Technical University</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Dr. Amol Phadke</strong><br>Advisory Member (IRP, RE Planning and Procurement strategies)<br>Adjunct Associate Professor, University of California, Berkeley. Faculty Director India Energy and Climate Center</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Dr. Nikit Abhyankar</strong><br>Advisory Member (IRP, RE Planning and Procurement strategies)<br>Co-Faculty Director, India Energy &amp; Climate Centre Associate Adjunct Professor, Goldman School of Public Policy (GSPP), UC Berkeley</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Dr. Ranjit Deshmukh</strong><br>Advisory Member (IRP, Energy Systems, Economics, and Policies)<br>Associate Professor, Bren School of Environmental Science and Management, University of California, Santa Barbara</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card section-card p-4 h-100">
-            <p><strong>Prof. Zakir Hussain Rather</strong><br>Advisory Member (System operation and planning, Demand response, grid storage)<br>Department of Energy Science and Engineering, IIT Bombay Powai</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container text-center">
-      <p>© CMET, MANIT Bhopal</p>
+      <p>&copy; CMET, MANIT Bhopal</p>
       <p>cmet@manit.ac.in</p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts.js"></script>
+
 </body>
+
 </html>
-
-
-
