@@ -17,6 +17,28 @@
 
 const CMET_NEWS_DATA = [
   {
+    id: "cmet-wcr-bina-solar-mou",
+    title: "CMET, MANIT Signs MOU with West Central Railway for Optimization of 1.7 MW Solar Plant at Bina",
+    date: "5 August 2026",
+    category: "MOU",
+    featuredImage: "picture/news/news-4/WhatsApp Image 2026-09-01 at 16.08.09 (1).jpeg",
+    images: [
+      "picture/news/news-4/WhatsApp Image 2026-09-01 at 16.08.09 (1).jpeg",
+      "picture/news/news-4/WhatsApp Image 2026-09-01 at 16.08.10.jpeg",
+      "picture/news/news-4/WhatsApp Image 2026-09-01 at 16.08.09.jpeg",
+      "picture/news/news-4/WhatsApp Image 2026-09-01 at 16.08.10 (1).jpeg",
+      "picture/news/news-4/WhatsApp Image 2026-09-01 at 16.08.10 (2).jpeg",
+      "picture/news/news-4/WhatsApp Image 2026-09-01 at 16.08.10 (3).jpeg"
+    ],
+    shortDescription: "The Centre for Mission on Energy Transition (CMET), MANIT Bhopal has signed an MOU with West Central Railway, BPL Division to enhance the performance of the 1.7 MW solar power plant installed at Bina.",
+    fullDescription: `<p><strong>Bhopal | 5 August 2026</strong></p>
+    <p>The Centre for Mission on Energy Transition (CMET), Maulana Azad National Institute of Technology (MANIT), Bhopal has signed a Memorandum of Understanding (MOU) with West Central Railway, BPL Division to enhance the performance of the 1.7 MW solar power plant installed at Bina.</p>
+    <p>Under this 2-year collaboration, CMET will conduct detailed technical studies to identify reasons for lower generation. The scope includes solar radiance analysis, assessment of system losses due to dust, shading, wiring and inverter inefficiencies, panel orientation &amp; tilt optimization, and recommendations for efficient cleaning methods.</p>
+    <p>WCR will provide plant access, operational data, maintenance records, and coordination support for the study.</p>
+    <p>The MOU was signed by Sr. Divisional Electrical Engineer (TRD), WCR Bhopal and Dr. Anupama Sharma, Dean (ID &amp; IR), MANIT Bhopal.</p>
+    <p>This partnership aims to support Indian Railways’ goal of promoting renewable energy and reducing carbon footprint in railway operations through research and technology transfer.</p>`
+  },
+  {
     id: "cmet-reactive-power-demo-july2026",
     title: "CMET, MANIT Conducts Technical Demonstration on Reactive Power Compensation",
     date: "30–31 July 2026",
