@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body class="page-contact">
@@ -67,12 +68,12 @@
         <div class="col-lg-5">
           <div class="enlarged-contact-card h-100 bg-blue text-white d-flex flex-column justify-content-between position-relative overflow-hidden" style="background: linear-gradient(135deg, #0b2733 0%, #0b3a53 60%, #137a6a 100%);">
             <div>
-              <span class="bento-tag text-cyan border-cyan mb-3">MANIT BHOPAL CAMPUs</span>
+              <span class="bento-tag text-cyan border-cyan mb-3">MANIT BHOPAL CAMPUS</span>
               <h3 class="fw-bold text-white mb-4 display-6">Contact Information</h3>
               
               <div class="mb-4">
                 <h6 class="text-cyan fw-bold text-uppercase letter-spacing-1">Address</h6>
-                <p class="text-slate-300 mb-0" style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6;">
+                <p class="mb-0" style="color: #e2e8f0; font-size: 1.05rem; line-height: 1.65;">
                   Centre for Mission on Energy Transition (CMET)<br>
                   Department of Electrical Engineering,<br>
                   Maulana Azad National Institute of Technology (MANIT),<br>
@@ -83,15 +84,16 @@
 
               <div class="mb-4">
                 <h6 class="text-cyan fw-bold text-uppercase letter-spacing-1">Direct Email</h6>
-                <p class="text-white fs-5 fw-semibold mb-0"><a href="mailto:manitcmet@gmail.com" class="text-white text-decoration-none">manitcmet@gmail.com</a></p>
+                <p class="text-white fs-5 fw-semibold mb-0"><a href="mailto:cmet@manit.ac.in" class="text-white text-decoration-none">cmet@manit.ac.in</a></p>
               </div>
             </div>
 
             <!-- Social Handles Section -->
-            <div class="pt-4 border-top border-secondary">
+            <div class="pt-4 border-top" style="border-top-color: rgba(255, 255, 255, 0.2) !important;">
               <h6 class="text-cyan fw-bold text-uppercase letter-spacing-1 mb-3">Connect on Social Media</h6>
               <div class="d-flex flex-wrap gap-2">
                 <a href="https://www.linkedin.com/in/centre-for-mission-on-energy-transition-cmet-manit-61611a409" target="_blank" class="btn btn-outline-light btn-sm rounded-pill px-3">LinkedIn &rarr;</a>
+                <a href="https://www.instagram.com/manitcmet/" target="_blank" class="btn btn-outline-light btn-sm rounded-pill px-3">Instagram &rarr;</a>
                 <a href="https://youtube.com" target="_blank" class="btn btn-outline-light btn-sm rounded-pill px-3">YouTube &rarr;</a>
                 <a href="https://twitter.com" target="_blank" class="btn btn-outline-light btn-sm rounded-pill px-3">Twitter / X &rarr;</a>
               </div>
@@ -107,7 +109,7 @@
             <!-- Modern In-Page Response Alert -->
             <div id="formAlert" class="d-none mb-4" role="alert"></div>
 
-            <form id="contactForm" action="https://formsubmit.co/manitcmet@gmail.com" method="POST" novalidate>
+            <form id="contactForm" action="https://formsubmit.co/cmet@manit.ac.in" method="POST" novalidate>
               <!-- Hidden FormSubmit Configuration -->
               <input type="hidden" name="_subject" value="New Inquiry from CMET Website">
               <input type="hidden" name="_captcha" value="false">
@@ -137,6 +139,14 @@
                 <label for="message" class="form-label fw-semibold">Your Message *</label>
                 <textarea class="form-control form-control-lg rounded-3" id="message" name="message" rows="5" placeholder="Please describe your inquiry or project scope in detail..." aria-label="Your message" required></textarea>
               </div>
+
+              <!-- Cloudflare Turnstile CAPTCHA Widget (Commented out for now until site key is configured)
+              <div class="mb-4">
+                <label class="form-label fw-semibold text-blue mb-2">Security Verification *</label>
+                <div class="cf-turnstile" data-sitekey="YOUR_CLOUDFLARE_SITEKEY_HERE" data-theme="light"></div>
+              </div>
+              -->
+
               <button type="submit" id="submitBtn" class="btn btn-cta btn-cta-shimmer btn-lg rounded-pill px-5 d-inline-flex align-items-center">
                 <span id="btnspinner" class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true"></span>
                 <span id="btnText">Submit Message &rarr;</span>
@@ -152,7 +162,8 @@
   <footer class="footer">
     <div class="container text-center">
       <p>&copy; CMET, MANIT Bhopal</p>
-      <p>manitcmet@gmail.com</p>
+      <p>cmet@manit.ac.in</p>
+      <div id="visitor-counter-wrap" class="visitor-counter-box"></div>
     </div>
   </footer>
 
@@ -194,7 +205,7 @@
           btnText.textContent = 'Sending Message...';
 
           try {
-            const response = await fetch('https://formsubmit.co/ajax/manitcmet@gmail.com', {
+            const response = await fetch('https://formsubmit.co/ajax/cmet@manit.ac.in', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -222,22 +233,21 @@
                 </svg>
                 <div>
                   <div class="fw-bold fs-6 mb-1">Message sent successfully!</div>
-                  <div>Thank you for reaching out. Your inquiry has been forwarded to the CMET team at <strong>manitcmet@gmail.com</strong>.</div>
+                  <div>Thank you for reaching out. Your inquiry has been forwarded to the CMET team at <strong>cmet@manit.ac.in</strong>.</div>
                 </div>
               `;
               form.reset();
+              submitBtn.disabled = false;
+              btnspinner.classList.add('d-none');
+              btnText.innerHTML = 'Submit Message &rarr;';
+              alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             } else {
-              throw new Error('submission error');
+              // Submit form directly to FormSubmit to show activation/confirmation page
+              HTMLFormElement.prototype.submit.call(form);
             }
           } catch (err) {
-            // Friendly fallback if network restricts direct FormSubmit API
-            alertBox.className = 'alert alert-info p-3 rounded-3 mb-4';
-            alertBox.innerHTML = '<strong>Inquiry Ready:</strong> If your network restricts automated form forwarding, you can send your inquiry directly via <a href="mailto:manitcmet@gmail.com?subject=' + encodeURIComponent(subject || 'CMET Inquiry') + '&body=' + encodeURIComponent('Name: ' + name + '\nPhone: ' + phone + '\n\n' + message) + '" class="fw-bold text-decoration-underline text-blue">manitcmet@gmail.com</a>.';
-          } finally {
-            submitBtn.disabled = false;
-            btnspinner.classList.add('d-none');
-            btnText.innerHTML = 'Submit Message &rarr;';
-            alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Fallback native submit if fetch is restricted or offline
+            HTMLFormElement.prototype.submit.call(form);
           }
         });
       }
