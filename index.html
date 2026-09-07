@@ -64,7 +64,13 @@
     </div>
 
     <section class="hero-section py-6 position-relative overflow-hidden">
-      <div class="hero-bg"></div>
+      <div class="hero-bg">
+        <div class="hero-slide active" style="background-image: url('picture/banner/01%20(1).webp'); background-position: center;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/04.webp'); background-position: center 40%;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/Picture31.jpg'); background-position: center;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/Picture37.jpg'); background-position: center 35%;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/Picture47.jpg'); background-position: center 40%;"></div>
+      </div>
       <div class="hero-overlay"></div>
       <div class="hero-orb hero-orb-1"></div>
       <div class="hero-orb hero-orb-2"></div>
@@ -124,12 +130,12 @@
                 </div>
               </div>
               <ul class="announcement-list-v2">
-                <li>
+                <!-- <li>
                   <a href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form.%20(1).pdf" target="_blank">
                     <span>Open positions and recruitment opportunities</span>
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                   </a>
-                </li>
+                </li> -->
                 <li>
                   <a href="projects.html">
                     <span>PM-KUsUM integration study &amp; field implementation</span>
@@ -561,6 +567,7 @@
     <div class="container text-center">
       <p>&copy; CMET, MANIT Bhopal</p>
       <p>cmet@manit.ac.in</p>
+      <div id="visitor-counter-wrap" class="visitor-counter-box"></div>
     </div>
   </footer>
 
@@ -574,7 +581,7 @@
       if (!container || typeof CMET_NEWS_DATA === 'undefined' || !CMET_NEWS_DATA.length) return;
 
       var allNews = CMET_NEWS_DATA;
-      var displayNews = allNews.slice(0, 3); // Limit to top 3 latest news items on homepage
+      var displayNews = allNews.slice(0, 3); // Keep only latest 3 news on home page
       var featuredIndex = 0;
       var featured = displayNews[0];
 
