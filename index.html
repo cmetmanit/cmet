@@ -9,6 +9,36 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Self-contained Hero Banner Slides & Crossfade */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-color: #0b2733;
+      background-image: url('picture/banner/01%20(1).webp');
+      background-size: cover;
+      background-position: center;
+      animation: none !important;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 1.4s ease-in-out, transform 8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: opacity, transform;
+      pointer-events: none;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+  </style>
 </head>
 
 <body class="page-home">
@@ -64,7 +94,13 @@
     </div>
 
     <section class="hero-section py-6 position-relative overflow-hidden">
-      <div class="hero-bg"></div>
+      <div class="hero-bg">
+        <div class="hero-slide active" style="background-image: url('picture/banner/01%20(1).webp'); background-position: center;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/04.webp'); background-position: center 40%;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/Picture31.jpg'); background-position: center;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/Picture37.jpg'); background-position: center 35%;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/Picture47.jpg'); background-position: center 40%;"></div>
+      </div>
       <div class="hero-overlay"></div>
       <div class="hero-orb hero-orb-1"></div>
       <div class="hero-orb hero-orb-2"></div>
@@ -124,12 +160,12 @@
                 </div>
               </div>
               <ul class="announcement-list-v2">
-                <li>
+                <!-- <li>
                   <a href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form.%20(1).pdf" target="_blank">
                     <span>Open positions and recruitment opportunities</span>
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                   </a>
-                </li>
+                </li> -->
                 <li>
                   <a href="projects.html">
                     <span>PM-KUsUM integration study &amp; field implementation</span>
@@ -561,6 +597,7 @@
     <div class="container text-center">
       <p>&copy; CMET, MANIT Bhopal</p>
       <p>cmet@manit.ac.in</p>
+      <div id="visitor-counter-wrap" class="visitor-counter-box"></div>
     </div>
   </footer>
 
@@ -574,7 +611,7 @@
       if (!container || typeof CMET_NEWS_DATA === 'undefined' || !CMET_NEWS_DATA.length) return;
 
       var allNews = CMET_NEWS_DATA;
-      var displayNews = allNews.slice(0, 3); // Limit to top 3 latest news items on homepage
+      var displayNews = allNews.slice(0, 3); // Keep only latest 3 news on home page
       var featuredIndex = 0;
       var featured = displayNews[0];
 
@@ -660,6 +697,43 @@
           }, 150);
         });
       });
+    })();
+
+    // Self-contained Hero Background 5-Banner Slideshow (independent of external scripts.js)
+    (function() {
+      function initHeroBanner() {
+        if (window.__cmetHeroInitialized) return;
+        var slides = document.querySelectorAll('.hero-section .hero-slide');
+        if (!slides || slides.length < 2) return;
+        window.__cmetHeroInitialized = true;
+
+        var currentIndex = 0;
+        var intervalTime = 5000;
+
+        // Preload images for seamless transitions
+        slides.forEach(function(slide) {
+          var bg = slide.style.backgroundImage;
+          if (bg) {
+            var match = bg.match(/url\(['"]?(.*?)['"]?\)/);
+            if (match && match[1]) {
+              var img = new Image();
+              img.src = match[1];
+            }
+          }
+        });
+
+        setInterval(function() {
+          slides[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add('active');
+        }, intervalTime);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeroBanner);
+      } else {
+        initHeroBanner();
+      }
     })();
   </script>
 </body>
