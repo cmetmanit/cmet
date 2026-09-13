@@ -16,6 +16,7 @@
  */
 
 const CMET_NEWS_DATA = [
+  
   {
     id: "cmet-wcr-bina-solar-mou",
     title: "CMET, MANIT Signs MOU with West Central Railway for Optimization of 1.7 MW Solar Plant at Bina",

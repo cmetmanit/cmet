@@ -1,13 +1,68 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const path = window.location.pathname.split('/').pop();
+// Auto-highlight active navigation link
+function highlightActiveNavLink() {
+  const path = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(function (link) {
     const href = link.getAttribute('href');
     if (href === path || ((path === '' || path === '/' || path === 'index.html') && href === 'index.html')) {
       link.classList.add('active');
     }
   });
+}
+
+// Reusable dynamic component loader for header and footer (Method 1)
+function loadSharedComponent(elementId, filePath, callback) {
+  const target = document.getElementById(elementId);
+  if (!target) return;
+  fetch(filePath)
+    .then(function (res) {
+      if (!res.ok) throw new Error('Failed to load ' + filePath);
+      return res.text();
+    })
+    .then(function (html) {
+      target.innerHTML = html;
+      if (typeof callback === 'function') callback();
+    })
+    .catch(function (err) {
+      console.warn('Could not load shared component:', filePath, err);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Load Shared Header if container exists; otherwise highlight hardcoded nav
+  if (document.getElementById('site-header')) {
+    loadSharedComponent('site-header', 'header.html', highlightActiveNavLink);
+  } else {
+    highlightActiveNavLink();
+  }
 
   if (document.body.classList.contains('page-home')) {
+    // Hero Background Slideshow (cycles through all 5 banner images smoothly without any dots/overlays)
+    if (window.__cmetHeroInitialized) return;
+    const heroSlides = document.querySelectorAll('.hero-section .hero-slide');
+    if (heroSlides.length > 1) {
+      window.__cmetHeroInitialized = true;
+      let currentHeroIndex = 0;
+      const heroInterval = 5000;
+
+      // Preload images for seamless transitions
+      heroSlides.forEach(function(slide) {
+        const bg = slide.style.backgroundImage;
+        if (bg) {
+          const match = bg.match(/url\(['"]?(.*?)['"]?\)/);
+          if (match && match[1]) {
+            const img = new Image();
+            img.src = match[1];
+          }
+        }
+      });
+
+      setInterval(function() {
+        heroSlides[currentHeroIndex].classList.remove('active');
+        currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
+        heroSlides[currentHeroIndex].classList.add('active');
+      }, heroInterval);
+    }
+
     const track = document.querySelector('.collaborator-track');
     if (track) {
       let scrollPos = 0;
@@ -239,4 +294,78 @@ document.addEventListener('DOMContentLoaded', function () {
       m.style.animationPlayState = 'running';
     });
   });
+
+  // Site-wide Footer Visitor Counter
+  function initVisitorCounter() {
+    const footerContainer = document.querySelector('.footer .container');
+    if (!footerContainer) return;
+
+    let counterWrap = document.getElementById('visitor-counter-wrap');
+    if (!counterWrap) {
+      counterWrap = document.createElement('div');
+      counterWrap.id = 'visitor-counter-wrap';
+      counterWrap.className = 'visitor-counter-box';
+      footerContainer.appendChild(counterWrap);
+    }
+
+    const baseCount = 18452;
+
+    function renderCounter(count) {
+      const formatted = String(count).padStart(6, '0');
+      const digitsHtml = formatted
+        .split('')
+        .map(function(d) { return '<span class="counter-digit">' + d + '</span>'; })
+        .join('');
+
+      counterWrap.innerHTML = 
+        '<div class="visitor-counter-inner" title="Total Website Visits">' +
+          '<span class="visitor-label">' +
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1">' +
+              '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>' +
+              '<circle cx="12" cy="12" r="3"></circle>' +
+            '</svg>' +
+            'Visitors' +
+          '</span>' +
+          '<div class="counter-odometer">' + digitsHtml + '</div>' +
+        '</div>';
+    }
+
+    function fallbackLocal() {
+      var stored = parseInt(localStorage.getItem('cmet_visitor_count'), 10);
+      if (isNaN(stored) || stored < baseCount) {
+        stored = baseCount;
+      }
+      if (!sessionStorage.getItem('cmet_session_counted')) {
+        sessionStorage.setItem('cmet_session_counted', 'true');
+        stored += 1;
+        localStorage.setItem('cmet_visitor_count', stored);
+      }
+      renderCounter(stored);
+    }
+
+    // Try fetching from visitor-counter.php endpoint
+    fetch('visitor-counter.php')
+      .then(function(res) {
+        if (!res.ok) throw new Error('Network response not ok');
+        return res.json();
+      })
+      .then(function(data) {
+        if (data && data.count) {
+          renderCounter(data.count);
+          localStorage.setItem('cmet_visitor_count', data.count);
+        } else {
+          fallbackLocal();
+        }
+      })
+      .catch(function() {
+        fallbackLocal();
+      });
+  }
+
+  // Load Shared Footer if container exists; otherwise initialize hardcoded footer counter
+  if (document.getElementById('site-footer')) {
+    loadSharedComponent('site-footer', 'footer.html', initVisitorCounter);
+  } else {
+    initVisitorCounter();
+  }
 });

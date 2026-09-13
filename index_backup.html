@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -8,47 +8,41 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Self-contained Hero Banner Slides & Crossfade */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-color: #0b2733;
+      background-image: url('picture/banner/01%20(1).webp');
+      background-size: cover;
+      background-position: center;
+      animation: none !important;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 1.4s ease-in-out, transform 8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: opacity, transform;
+      pointer-events: none;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+  </style>
 </head>
 
 <body class="page-home">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="logo.jpg" alt="CMET Logo" height="65"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link text-uppercase" href="index.html">HOME</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="ourWorkDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">OUR WORK</a>
-            <ul class="dropdown-menu" aria-labelledby="ourWorkDropdown">
-              <li><a class="dropdown-item" href="focus-areas.html">RESEARCH AREAS</a></li>
-              <li><a class="dropdown-item" href="labs.html">LABORATORIES</a></li>
-              <li><a class="dropdown-item" href="projects.html">PROJECTS</a></li>
-              <li><a class="dropdown-item" href="publications.html">PUBLICATIONS</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="researchTeamDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">RESEARCH TEAM</a>
-            <ul class="dropdown-menu" aria-labelledby="researchTeamDropdown">
-              <li><a class="dropdown-item" href="team-lead.html">TEAM LEAD</a></li>
-              <li><a class="dropdown-item" href="team-member.html">TEAM MEMBER</a></li>
-              <li><a class="dropdown-item" href="team-member.html#alumni">ALUMNI</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="news.html">NEWS</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="about.html">ABOUT US</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="opening.html">OPEN POSITIONS</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="contact.html">CONTACT US</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="gallery.html">GALLERY</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Shared Dynamic Header (Method 1) -->
+  <div id="site-header"></div>
 
   <main class="mt-5 pt-5">
     <div class="topbar">
@@ -62,7 +56,13 @@
     </div>
 
     <section class="hero-section py-6 position-relative overflow-hidden">
-      <div class="hero-bg"></div>
+      <div class="hero-bg">
+        <div class="hero-slide active" style="background-image: url('picture/banner/01%20(1).webp'); background-position: center;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/04.webp'); background-position: center 40%;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/Picture31.jpg'); background-position: center;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/Picture37.jpg'); background-position: center 35%;"></div>
+        <div class="hero-slide" style="background-image: url('picture/banner/Picture47.jpg'); background-position: center 40%;"></div>
+      </div>
       <div class="hero-overlay"></div>
       <div class="hero-orb hero-orb-1"></div>
       <div class="hero-orb hero-orb-2"></div>
@@ -537,15 +537,48 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container text-center">
-      <p>© CMET, MANIT Bhopal</p>
-      <p>cmet@manit.ac.in</p>
-    </div>
-  </footer>
+  <!-- Shared Dynamic Footer (Method 1) -->
+  <div id="site-footer"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts.js"></script>
+  <script>
+    // Self-contained Hero Background 5-Banner Slideshow
+    (function() {
+      function initHeroBanner() {
+        if (window.__cmetHeroInitialized) return;
+        var slides = document.querySelectorAll('.hero-section .hero-slide');
+        if (!slides || slides.length < 2) return;
+        window.__cmetHeroInitialized = true;
+
+        var currentIndex = 0;
+        var intervalTime = 5000;
+
+        slides.forEach(function(slide) {
+          var bg = slide.style.backgroundImage;
+          if (bg) {
+            var match = bg.match(/url\(['"]?(.*?)['"]?\)/);
+            if (match && match[1]) {
+              var img = new Image();
+              img.src = match[1];
+            }
+          }
+        });
+
+        setInterval(function() {
+          slides[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add('active');
+        }, intervalTime);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeroBanner);
+      } else {
+        initHeroBanner();
+      }
+    })();
+  </script>
 </body>
 
 </html>

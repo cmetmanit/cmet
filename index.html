@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -42,45 +42,8 @@
 </head>
 
 <body class="page-home">
-  <!-- Navigation Header -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="logo.jpg" alt="CMET Logo" height="65"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link text-uppercase" href="index.html">HOME</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="ourWorkDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">OUR WORK</a>
-            <ul class="dropdown-menu" aria-labelledby="ourWorkDropdown">
-              <li><a class="dropdown-item" href="focus-areas.html">RESEARCH AREAS</a></li>
-              <li><a class="dropdown-item" href="labs.html">LABORATORIES</a></li>
-              <li><a class="dropdown-item" href="projects.html">PROJECTS</a></li>
-              <li><a class="dropdown-item" href="publications.html">PUBLICATIONS</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="researchTeamDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">RESEARCH TEAM</a>
-            <ul class="dropdown-menu" aria-labelledby="researchTeamDropdown">
-              <li><a class="dropdown-item" href="team-lead.html">TEAM LEAD</a></li>
-              <li><a class="dropdown-item" href="team-member.html">TEAM MEMBER</a></li>
-              <li><a class="dropdown-item" href="team-member.html#alumni">ALUMNI</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="news.html">NEWS</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="about.html">ABOUT US</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="opening.html">OPEN POSITIONS</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="contact.html">CONTACT US</a></li>
-          <li class="nav-item"><a class="nav-link text-uppercase" href="gallery.html">GALLERY</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Shared Dynamic Header (Method 1) -->
+  <div id="site-header"></div>
 
 <main class="mt-5 pt-5">
     <div class="topbar">
@@ -188,17 +151,24 @@
     <!-- â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull; -->
     <!-- LATEST NEWS BULLETIN â€” reads from news-data.js        -->
     <!-- â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull;â&bull; -->
-    <section class="hp-news-section py-5" id="latestNewsBulletin">
+    <section class="hp-news-section" id="latestNewsBulletin">
       <div class="container">
-        <div class="hp-news-header d-flex justify-content-between align-items-end mb-4 reveal reveal-slide-up">
+        <div class="hp-news-header d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end gap-3 mb-4 reveal reveal-slide-up">
           <div>
-            <span class="section-eyebrow">LATEsT UPDATES</span>
-            <h2 class="section-heading mb-0">News &amp; Bulletin</h2>
+            <div class="hp-section-eyebrow">
+              <span class="hp-pulse-dot"></span>
+              <span>LATEST UPDATES</span>
+            </div>
+            <h2 class="section-heading mb-1">News &amp; Bulletin</h2>
+            <p class="hp-section-subtitle mb-0">Discover recent milestones, field demonstrations, and collaborative initiatives at CMET.</p>
           </div>
-          <a href="news.html" class="hp-news-viewall">View All News &rarr;</a>
+          <a href="news.html" class="hp-viewall-btn">
+            <span>View All News</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
-        <div class="row g-4" id="hp-news-split-container">
-          <!-- Featured News Card (Left) & Headlines List (Right) injected dynamically by Js -->
+        <div class="row g-4 align-items-stretch" id="hp-news-split-container">
+          <!-- Spotlight News Card (Left) & Executive Bulletin Desk (Right) injected dynamically by JS -->
         </div>
       </div>
     </section>
@@ -592,113 +562,298 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container text-center">
-      <p>&copy; CMET, MANIT Bhopal</p>
-      <p>cmet@manit.ac.in</p>
-      <div id="visitor-counter-wrap" class="visitor-counter-box"></div>
+  <!-- Shared Dynamic Footer (Method 1) -->
+  <div id="site-footer"></div>
+
+  <!-- Full News Detail Modal (Interactive in-page viewer) -->
+  <div class="modal fade" id="newsDetailModal" tabindex="-1" aria-labelledby="modalNewsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content news-modal-content">
+        <div class="modal-header border-0 pb-0 pt-4 px-4">
+          <div>
+            <span class="badge bg-teal-subtle text-teal fw-semibold rounded-pill px-3 py-2" id="modalNewsCategory" style="background: rgba(19, 122, 106, 0.1); color: var(--teal);"></span>
+            <span class="text-muted ms-2 small" id="modalNewsDate"></span>
+            <h3 class="modal-title text-blue fw-bold mt-2" id="modalNewsTitle"></h3>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="modalNewsGallery"></div>
+          <div id="modalNewsContent" class="news-full-writeup text-slate lead" style="font-size: 1.05rem; line-height: 1.7;"></div>
+        </div>
+        <div class="modal-footer border-0 px-4 pb-4 d-flex justify-content-between align-items-center">
+          <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3" id="modalPrevBtn">&larr; Previous Event</button>
+          <a href="news.html" class="btn btn-primary btn-sm rounded-pill px-4" style="background: var(--blue); border-color: var(--blue);">View All News Archive</a>
+          <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3" id="modalNextBtn">Next Event &rarr;</button>
+        </div>
+      </div>
     </div>
-  </footer>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts.js"></script>
   <script src="news-data.js"></script>
   <script>
-    // Render Interactive Compact Split News Bulletin on Homepage — reads from CMET_NEWS_DATA (news-data.js)
+    // Modern Spotlight & Executive Bulletin Renderer for Homepage — reads from CMET_NEWS_DATA (news-data.js)
     (function() {
       var container = document.getElementById('hp-news-split-container');
       if (!container || typeof CMET_NEWS_DATA === 'undefined' || !CMET_NEWS_DATA.length) return;
 
       var allNews = CMET_NEWS_DATA;
-      var displayNews = allNews.slice(0, 3); // Keep only latest 3 news on home page
-      var featuredIndex = 0;
+      var displayNews = allNews.slice(0, 3); // Top 3 latest updates
+      var activeIndex = 0;
       var featured = displayNews[0];
 
-      // Featured Card HTML (Left side)
-      var leftHtml = '<div class="col-lg-7 col-md-12">'
-        + '<a href="news.html" class="hp-featured-card reveal reveal-slide-up" id="hp-featured-link">'
-        +   '<div class="hp-featured-card-content" id="hp-featured-content-wrap">'
-        +     '<div class="hp-featured-img-wrap">'
-        +       '<img id="hp-featured-img" src="' + featured.featuredImage + '" alt="' + (featured.title || '') + '" loading="lazy">'
-        +       '<span class="hp-news-new" id="hp-featured-badge">FEATURED</span>'
-        +     '</div>'
-        +     '<div class="hp-featured-body">'
-        +       '<div class="hp-news-meta">'
-        +         '<span class="hp-news-cat" id="hp-featured-cat">' + (featured.category || 'NEWS') + '</span>'
-        +         '<span class="hp-news-date" id="hp-featured-date">' + (featured.date || '') + '</span>'
-        +       '</div>'
-        +       '<h4 class="hp-featured-title" id="hp-featured-title">' + (featured.title || '') + '</h4>'
-        +       '<p class="hp-featured-desc" id="hp-featured-desc">' + (featured.shortDescription || 'Click to view event details and photos.') + '</p>'
-        +       '<span class="hp-news-readmore">Read Full Story &rarr;</span>'
+      // Helper to extract clean day and month tokens
+      function parseDateBox(dateStr) {
+        if (!dateStr) return { day: '01', month: 'NEWS' };
+        var str = dateStr.trim();
+        var match = str.match(/(\d{1,2})(?:[–\-]\d{1,2})?\s+([A-Za-z]+)/);
+        if (match) {
+          return {
+            day: match[1].padStart(2, '0'),
+            month: match[2].slice(0, 3).toUpperCase()
+          };
+        }
+        var yrMatch = str.match(/(\d{4})/);
+        if (yrMatch) {
+          return { day: yrMatch[1].slice(-2), month: 'CMET' };
+        }
+        return { day: '•', month: 'NEW' };
+      }
+
+      function getCategoryClass(cat) {
+        if (!cat) return '';
+        var lower = cat.toLowerCase();
+        if (lower.indexOf('mou') !== -1) return 'tag-mou';
+        if (lower.indexOf('event') !== -1) return 'tag-events';
+        if (lower.indexOf('seminar') !== -1) return 'tag-seminars';
+        return '';
+      }
+
+      var photoCount = (featured.images && featured.images.length > 1) 
+        ? '<span class="hp-spotlight-photos-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>' + featured.images.length + ' Photos</span>'
+        : '';
+
+      // Left Column: Modern Spotlight Hero Card
+      var leftHtml = '<div class="col-lg-7 col-md-12 d-flex">'
+        + '<div class="hp-spotlight-card w-100 reveal reveal-slide-up" id="hp-spotlight-card">'
+        +   '<div class="hp-spotlight-media">'
+        +     '<img id="hp-spotlight-img" class="hp-spotlight-img" src="' + (featured.featuredImage || '') + '" alt="' + (featured.title || '') + '" loading="lazy">'
+        +     '<div class="hp-spotlight-gradient"></div>'
+        +     '<div class="hp-spotlight-top-tags">'
+        +       '<span class="hp-spotlight-badge" id="hp-spotlight-badge"><span class="hp-pulse-dot" style="background:#00D2FF; box-shadow:none;"></span> SPOTLIGHT</span>'
+        +       '<div id="hp-spotlight-photos-wrap">' + photoCount + '</div>'
         +     '</div>'
         +   '</div>'
-        + '</a>'
+        +   '<div class="hp-spotlight-content" id="hp-spotlight-content-wrap">'
+        +     '<div class="hp-spotlight-meta">'
+        +       '<span class="hp-category-tag ' + getCategoryClass(featured.category) + '" id="hp-spotlight-cat">' + (featured.category || 'NEWS') + '</span>'
+        +       '<span class="d-inline-flex align-items-center gap-1" id="hp-spotlight-date"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> ' + (featured.date || '') + '</span>'
+        +     '</div>'
+        +     '<h3 class="hp-spotlight-title" id="hp-spotlight-title">' + (featured.title || '') + '</h3>'
+        +     '<p class="hp-spotlight-desc" id="hp-spotlight-desc">' + (featured.shortDescription || 'Click to explore full documentation, outcomes, and photo highlights.') + '</p>'
+        +     '<div class="hp-spotlight-action-row">'
+        +       '<button type="button" class="hp-btn-read-story" id="hp-spotlight-read-btn" data-news-id="' + featured.id + '">'
+        +         '<span>Read Full Story</span>'
+        +         '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'
+        +       '</button>'
+        +       '<a href="news.html" class="hp-spotlight-archive-link">Explore Archive &rarr;</a>'
+        +     '</div>'
+        +   '</div>'
+        + '</div>'
         + '</div>';
 
-      // Headlines List HTML (Right side)
-      var listItemsHtml = '';
+      // Right Column: Executive Bulletin Desk
+      var bulletinItemsHtml = '';
       displayNews.forEach(function(item, idx) {
-        var catTag = item.category ? '<span class="hp-headline-cat">' + item.category + '</span>' : '';
+        var dateBox = parseDateBox(item.date);
         var activeClass = idx === 0 ? ' active' : '';
-        listItemsHtml += '<a href="news.html" class="hp-headline-item' + activeClass + '" data-news-idx="' + idx + '">'
-          + '<div class="hp-headline-meta">' + catTag + '<span class="hp-headline-date">' + (item.date || '') + '</span></div>'
-          + '<h5 class="hp-headline-title">' + (item.title || '') + '</h5>'
-          + '</a>';
+        var catClass = getCategoryClass(item.category);
+
+        bulletinItemsHtml += '<div class="hp-bulletin-item' + activeClass + '" data-news-idx="' + idx + '" data-news-id="' + item.id + '" role="button" tabindex="0">'
+          + '<div class="hp-date-box">'
+          +   '<span class="hp-date-day">' + dateBox.day + '</span>'
+          +   '<span class="hp-date-month">' + dateBox.month + '</span>'
+          + '</div>'
+          + '<div class="hp-bulletin-body">'
+          +   '<div class="hp-bulletin-meta">'
+          +     '<span class="hp-category-tag ' + catClass + '">' + (item.category || 'BULLETIN') + '</span>'
+          +   '</div>'
+          +   '<h4 class="hp-bulletin-title">' + (item.title || '') + '</h4>'
+          + '</div>'
+          + '<div class="hp-bulletin-arrow">'
+          +   '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'
+          + '</div>'
+          + '</div>';
       });
 
-      var rightHtml = '<div class="col-lg-5 col-md-12">'
-        + '<div class="hp-headlines-card reveal reveal-slide-up">'
-        +   '<div class="hp-headlines-header">'
-        +     '<h5 class="m-0 fw-bold text-blue">Recent Headlines</h5>'
+      var rightHtml = '<div class="col-lg-5 col-md-12 d-flex">'
+        + '<div class="hp-bulletin-card w-100 reveal reveal-slide-up">'
+        +   '<div class="hp-bulletin-header">'
+        +     '<h4 class="hp-bulletin-header-title">'
+        +       '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#137a6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>'
+        +       '<span>Recent Bulletins</span>'
+        +     '</h4>'
+        +     '<span class="hp-bulletin-count-badge">' + displayNews.length + ' Latest</span>'
         +   '</div>'
-        +   '<div class="hp-headlines-list" id="hp-headlines-list-wrap">'
-        +     listItemsHtml
+        +   '<div class="hp-bulletin-list">'
+        +     bulletinItemsHtml
         +   '</div>'
-        +   '<div class="hp-headlines-footer">'
-        +     '<a href="news.html" class="hp-news-viewall-sm">Explore All News &amp; Events &rarr;</a>'
+        +   '<div class="hp-bulletin-footer">'
+        +     '<a href="news.html" class="hp-bulletin-footer-link">'
+        +       '<span>Explore Complete News &amp; Events Archive</span>'
+        +       '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'
+        +     '</a>'
         +   '</div>'
         + '</div>'
         + '</div>';
 
       container.innerHTML = leftHtml + rightHtml;
 
-      // Add Hover listener to update Featured card dynamically on hover
-      var headlineItems = container.querySelectorAll('.hp-headline-item');
-      var contentWrap = document.getElementById('hp-featured-content-wrap');
-      var imgElem = document.getElementById('hp-featured-img');
-      var badgeElem = document.getElementById('hp-featured-badge');
-      var catElem = document.getElementById('hp-featured-cat');
-      var dateElem = document.getElementById('hp-featured-date');
-      var titleElem = document.getElementById('hp-featured-title');
-      var descElem = document.getElementById('hp-featured-desc');
+      // Ensure reveal animation triggers smoothly for dynamically rendered cards
+      container.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('active');
+      });
 
-      headlineItems.forEach(function(itemElem) {
+      // Dynamic Hover Preview Sync
+      var bulletinItems = container.querySelectorAll('.hp-bulletin-item');
+      var contentWrap = document.getElementById('hp-spotlight-content-wrap');
+      var imgElem = document.getElementById('hp-spotlight-img');
+      var badgeElem = document.getElementById('hp-spotlight-badge');
+      var photosWrap = document.getElementById('hp-spotlight-photos-wrap');
+      var catElem = document.getElementById('hp-spotlight-cat');
+      var dateElem = document.getElementById('hp-spotlight-date');
+      var titleElem = document.getElementById('hp-spotlight-title');
+      var descElem = document.getElementById('hp-spotlight-desc');
+      var readBtn = document.getElementById('hp-spotlight-read-btn');
+
+      function updateSpotlight(idx) {
+        if (idx === activeIndex) return;
+        activeIndex = idx;
+        bulletinItems.forEach(function(el) { el.classList.remove('active'); });
+        bulletinItems[idx].classList.add('active');
+
+        var targetData = displayNews[idx];
+
+        contentWrap.classList.add('fade-out');
+        setTimeout(function() {
+          imgElem.src = targetData.featuredImage || '';
+          imgElem.alt = targetData.title || '';
+          badgeElem.innerHTML = idx === 0 
+            ? '<span class="hp-pulse-dot" style="background:#00D2FF; box-shadow:none;"></span> SPOTLIGHT' 
+            : 'LATEST UPDATE';
+
+          if (targetData.images && targetData.images.length > 1) {
+            photosWrap.innerHTML = '<span class="hp-spotlight-photos-count"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>' + targetData.images.length + ' Photos</span>';
+          } else {
+            photosWrap.innerHTML = '';
+          }
+
+          catElem.className = 'hp-category-tag ' + getCategoryClass(targetData.category);
+          catElem.textContent = targetData.category || 'NEWS';
+
+          dateElem.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> ' + (targetData.date || '');
+          titleElem.textContent = targetData.title || '';
+          descElem.textContent = targetData.shortDescription || 'Click to explore full documentation, outcomes, and photo highlights.';
+          readBtn.setAttribute('data-news-id', targetData.id);
+
+          contentWrap.classList.remove('fade-out');
+        }, 150);
+      }
+
+      bulletinItems.forEach(function(itemElem) {
         itemElem.addEventListener('mouseenter', function() {
           var idx = parseInt(this.getAttribute('data-news-idx'), 10);
-          if (isNaN(idx) || idx === featuredIndex) return;
+          if (!isNaN(idx)) updateSpotlight(idx);
+        });
 
-          featuredIndex = idx;
-          headlineItems.forEach(function(el) { el.classList.remove('active'); });
-          this.classList.add('active');
+        itemElem.addEventListener('click', function() {
+          var newsId = this.getAttribute('data-news-id');
+          if (newsId) openHpNewsModal(newsId);
+        });
 
-          var targetData = displayNews[idx];
-
-          contentWrap.classList.add('fade-out');
-          setTimeout(function() {
-            imgElem.src = targetData.featuredImage || '';
-            imgElem.alt = targetData.title || '';
-            badgeElem.textContent = idx === 0 ? 'FEATURED' : 'LATEST';
-            catElem.textContent = targetData.category || 'NEWS';
-            dateElem.textContent = targetData.date || '';
-            titleElem.textContent = targetData.title || '';
-            descElem.textContent = targetData.shortDescription || 'Click to view event details and photos.';
-            contentWrap.classList.remove('fade-out');
-          }, 150);
+        itemElem.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            var newsId = this.getAttribute('data-news-id');
+            if (newsId) openHpNewsModal(newsId);
+          }
         });
       });
+
+      // Read Story button click on Spotlight card
+      if (readBtn) {
+        readBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          var newsId = this.getAttribute('data-news-id');
+          if (newsId) openHpNewsModal(newsId);
+        });
+      }
     })();
 
+    // Modal popup handler for Homepage
+    function openHpNewsModal(newsId) {
+      if (typeof CMET_NEWS_DATA === 'undefined' || !CMET_NEWS_DATA.length) return;
+      var itemIndex = CMET_NEWS_DATA.findIndex(function(item) { return item.id === newsId; });
+      if (itemIndex === -1) return;
+
+      var item = CMET_NEWS_DATA[itemIndex];
+      var modalElem = document.getElementById('newsDetailModal');
+      if (!modalElem) return;
+
+      document.getElementById('modalNewsTitle').innerText = item.title || '';
+      document.getElementById('modalNewsDate').innerText = item.date || '';
+      document.getElementById('modalNewsCategory').innerText = item.category || 'News';
+
+      var contentArea = document.getElementById('modalNewsContent');
+      contentArea.innerHTML = item.fullDescription || (item.shortDescription ? '<p>' + item.shortDescription + '</p>' : '');
+
+      var galleryArea = document.getElementById('modalNewsGallery');
+      var images = item.images && item.images.length > 0 ? item.images : [item.featuredImage];
+
+      if (images.length === 1) {
+        galleryArea.innerHTML = '<div class="single-news-image mb-4">'
+          + '<img src="' + images[0] + '" alt="' + (item.title || '') + '" class="img-fluid rounded-4 shadow-sm w-100" style="max-height: 480px; object-fit: cover;">'
+          + '</div>';
+      } else {
+        var indicators = '';
+        var slides = '';
+        images.forEach(function(imgSrc, idx) {
+          indicators += '<button type="button" data-bs-target="#newsModalCarousel" data-bs-slide-to="' + idx + '" class="' + (idx === 0 ? 'active' : '') + '" aria-current="' + (idx === 0 ? 'true' : 'false') + '"></button>';
+          slides += '<div class="carousel-item ' + (idx === 0 ? 'active' : '') + '">'
+            + '<img src="' + imgSrc + '" class="d-block w-100 rounded-4 news-carousel-img" alt="Photo ' + (idx + 1) + '" style="max-height: 480px; object-fit: cover;">'
+            + '</div>';
+        });
+
+        galleryArea.innerHTML = '<div id="newsModalCarousel" class="carousel slide mb-4" data-bs-ride="carousel">'
+          + '<div class="carousel-indicators">' + indicators + '</div>'
+          + '<div class="carousel-inner">' + slides + '</div>'
+          + '<button class="carousel-control-prev" type="button" data-bs-target="#newsModalCarousel" data-bs-slide="prev">'
+          +   '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'
+          +   '<span class="visually-hidden">Previous</span>'
+          + '</button>'
+          + '<button class="carousel-control-next" type="button" data-bs-target="#newsModalCarousel" data-bs-slide="next">'
+          +   '<span class="carousel-control-next-icon" aria-hidden="true"></span>'
+          +   '<span class="visually-hidden">Next</span>'
+          + '</button>'
+          + '</div>';
+      }
+
+      var prevIndex = (itemIndex - 1 + CMET_NEWS_DATA.length) % CMET_NEWS_DATA.length;
+      var nextIndex = (itemIndex + 1) % CMET_NEWS_DATA.length;
+
+      var prevBtn = document.getElementById('modalPrevBtn');
+      var nextBtn = document.getElementById('modalNextBtn');
+      if (prevBtn) prevBtn.onclick = function() { openHpNewsModal(CMET_NEWS_DATA[prevIndex].id); };
+      if (nextBtn) nextBtn.onclick = function() { openHpNewsModal(CMET_NEWS_DATA[nextIndex].id); };
+
+      var bsModal = bootstrap.Modal.getOrCreateInstance(modalElem);
+      bsModal.show();
+    }
+  </script>
+
+  <script>
     // Self-contained Hero Background 5-Banner Slideshow (independent of external scripts.js)
     (function() {
       function initHeroBanner() {
