@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.08em;
 }
 
-..nav-link {
+.nav-link {
   color: var(--dark) !important;
   transition: color 0.2s ease, transform 0.2s ease;
   position: relative;
@@ -160,7 +160,23 @@ h1, h2, h3, h4, h5, h6 {
   outline: none !important;
 }
 
-.nav-link::after {
+.nav-link.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0.35em;
+  vertical-align: 0.18em;
+  content: "";
+  border-top: 0.3em solid currentColor;
+  border-right: 0.25em solid transparent;
+  border-bottom: 0;
+  border-left: 0.25em solid transparent;
+  transition: transform 0.2s ease;
+}
+
+.nav-item.dropdown.show > .nav-link.dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.nav-link:not(.dropdown-toggle)::after {
   content: '';
   position: absolute;
   left: 0;
@@ -173,8 +189,8 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.2s ease;
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
+.nav-link:not(.dropdown-toggle):hover::after,
+.nav-link:not(.dropdown-toggle).active::after {
   transform: scaleX(1);
 }
 
@@ -185,25 +201,42 @@ h1, h2, h3, h4, h5, h6 {
 
 .dropdown-menu {
   min-width: 220px;
+  border: 1px solid rgba(11, 38, 53, 0.08);
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 36px rgba(11, 38, 53, 0.1);
+  padding: 0.5rem;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-12px);
-  transition: opacity 240ms ease, transform 240ms ease, visibility 240ms ease;
+  margin-top: 8px;
+  transition: opacity 200ms ease, margin-top 200ms ease, visibility 200ms ease;
 }
 
 .dropdown-menu.show {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  margin-top: 2px;
 }
 
 .dropdown-item {
   color: var(--dark);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.5rem;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  background: rgba(26, 141, 124, 0.06);
+  background: rgba(19, 122, 106, 0.08);
+  color: var(--teal);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background: rgba(19, 122, 106, 0.12);
+  color: var(--teal);
+  font-weight: 600;
 }
 
 .hero-section {
@@ -893,6 +926,19 @@ h1, h2, h3, h4, h5, h6 {
 .footer p {opacity: 0.9}
 
 @media (max-width: 991px) {
+  .navbar-collapse {
+    max-height: calc(100vh - 85px);
+    overflow-y: auto;
+    padding-top: 0.75rem;
+    padding-bottom: 1.25rem;
+  }
+  .navbar .dropdown-menu {
+    border: none;
+    box-shadow: none;
+    background: rgba(19, 122, 106, 0.04);
+    margin: 0.25rem 0 0.5rem 0.5rem;
+    padding-left: 0.5rem;
+  }
   .hero-section {
     padding: 3rem 0;
   }

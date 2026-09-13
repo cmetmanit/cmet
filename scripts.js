@@ -1,10 +1,31 @@
-// Auto-highlight active navigation link
+// Auto-highlight active navigation link and parent dropdowns
 function highlightActiveNavLink() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function (link) {
+  let currentPath = window.location.pathname.split('/').pop() || 'index';
+  currentPath = currentPath.split('#')[0].split('?')[0].replace(/\.html$/, '');
+  if (currentPath === '') currentPath = 'index';
+
+  // Highlight direct nav links
+  document.querySelectorAll('.navbar .nav-link').forEach(function (link) {
     const href = link.getAttribute('href');
-    if (href === path || ((path === '' || path === '/' || path === 'index.html') && href === 'index.html')) {
+    if (!href || href === '#' || href.startsWith('#')) return;
+    const linkPath = href.split('/').pop().split('#')[0].split('?')[0].replace(/\.html$/, '');
+    if (linkPath === currentPath) {
       link.classList.add('active');
+    }
+  });
+
+  // Highlight dropdown items and mark parent dropdown toggle as active
+  document.querySelectorAll('.navbar .dropdown-item').forEach(function (item) {
+    const href = item.getAttribute('href');
+    if (!href || href === '#' || href.startsWith('#')) return;
+    const itemPath = href.split('/').pop().split('#')[0].split('?')[0].replace(/\.html$/, '');
+    if (itemPath === currentPath) {
+      item.classList.add('active');
+      const parentDropdown = item.closest('.nav-item.dropdown');
+      if (parentDropdown) {
+        const toggle = parentDropdown.querySelector('.dropdown-toggle');
+        if (toggle) toggle.classList.add('active');
+      }
     }
   });
 }
@@ -27,12 +48,125 @@ function loadSharedComponent(elementId, filePath, callback) {
     });
 }
 
+// Desktop-only dropdown hover enhancement for Bootstrap navbars
+function initDropdownHover() {
+  const desktopQuery = window.matchMedia('(min-width: 992px)');
+  const hoverDelay = 250;
+  const dropdownItems = Array.from(document.querySelectorAll('.nav-item.dropdown'));
+  const hoverState = new WeakMap();
+
+  if (!dropdownItems.length || !window.bootstrap || !window.bootstrap.Dropdown) {
+    return;
+  }
+
+  const clearTimers = function(state) {
+    if (state.openTimer) { clearTimeout(state.openTimer); state.openTimer = null; }
+    if (state.closeTimer) { clearTimeout(state.closeTimer); state.closeTimer = null; }
+  };
+
+  const showDropdown = function(state) {
+    clearTimers(state);
+    if (!state.dropdownMenu.classList.contains('show')) {
+      state.openTimer = setTimeout(function() {
+        state.dropdownInstance.show();
+      }, 50);
+    }
+  };
+
+  const hideDropdown = function(state) {
+    if (state.openTimer) { clearTimeout(state.openTimer); state.openTimer = null; }
+    state.closeTimer = setTimeout(function() {
+      if (!state.dropdownItem.matches(':hover') && !state.dropdownMenu.matches(':hover')) {
+        state.dropdownInstance.hide();
+      }
+    }, hoverDelay);
+  };
+
+  const attachHover = function(dropdownItem) {
+    const trigger = dropdownItem.querySelector('[data-bs-toggle="dropdown"]');
+    const menu = dropdownItem.querySelector('.dropdown-menu');
+    if (!trigger || !menu) return;
+
+    const instance = window.bootstrap.Dropdown.getOrCreateInstance(trigger);
+    const state = {
+      dropdownItem: dropdownItem,
+      trigger: trigger,
+      dropdownMenu: menu,
+      dropdownInstance: instance,
+      openTimer: null,
+      closeTimer: null,
+      mouseEnterHandler: null,
+      mouseLeaveHandler: null,
+      menuEnterHandler: null,
+      menuLeaveHandler: null
+    };
+    hoverState.set(dropdownItem, state);
+
+    state.mouseEnterHandler = function() {
+      if (desktopQuery.matches) showDropdown(state);
+    };
+    state.mouseLeaveHandler = function() {
+      if (desktopQuery.matches) hideDropdown(state);
+    };
+    state.menuEnterHandler = function() {
+      if (desktopQuery.matches) {
+        clearTimeout(state.closeTimer);
+        state.closeTimer = null;
+      }
+    };
+    state.menuLeaveHandler = function() {
+      if (desktopQuery.matches) hideDropdown(state);
+    };
+
+    dropdownItem.addEventListener('mouseenter', state.mouseEnterHandler);
+    dropdownItem.addEventListener('mouseleave', state.mouseLeaveHandler);
+    menu.addEventListener('mouseenter', state.menuEnterHandler);
+    menu.addEventListener('mouseleave', state.menuLeaveHandler);
+  };
+
+  const detachHover = function(dropdownItem) {
+    const state = hoverState.get(dropdownItem);
+    if (!state) return;
+    clearTimers(state);
+    dropdownItem.removeEventListener('mouseenter', state.mouseEnterHandler);
+    dropdownItem.removeEventListener('mouseleave', state.mouseLeaveHandler);
+    state.dropdownMenu.removeEventListener('mouseenter', state.menuEnterHandler);
+    state.dropdownMenu.removeEventListener('mouseleave', state.menuLeaveHandler);
+    hoverState.delete(dropdownItem);
+  };
+
+  const enableHover = function() {
+    dropdownItems.forEach(function(item) {
+      if (!hoverState.get(item)) attachHover(item);
+    });
+  };
+
+  const disableHover = function() {
+    dropdownItems.forEach(function(item) {
+      detachHover(item);
+    });
+  };
+
+  desktopQuery.addEventListener('change', function(e) {
+    if (e.matches) { enableHover(); } else { disableHover(); }
+  });
+
+  if (desktopQuery.matches) {
+    enableHover();
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+  function setupHeader() {
+    highlightActiveNavLink();
+    initDropdownHover();
+  }
+
   // Load Shared Header if container exists; otherwise highlight hardcoded nav
   if (document.getElementById('site-header')) {
-    loadSharedComponent('site-header', 'header.html', highlightActiveNavLink);
+    loadSharedComponent('site-header', 'header.html', setupHeader);
   } else {
-    highlightActiveNavLink();
+    setupHeader();
   }
 
   if (document.body.classList.contains('page-home')) {
@@ -122,114 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Desktop-only dropdown hover enhancement for Bootstrap navbars.
-  (function() {
-    const desktopQuery = window.matchMedia('(min-width: 992px)');
-    const hoverDelay = 250;
-    const dropdownItems = Array.from(document.querySelectorAll('.nav-item.dropdown'));
-    const hoverState = new WeakMap();
-
-    if (!dropdownItems.length || !window.bootstrap || !window.bootstrap.Dropdown) {
-      return;
-    }
-
-    const clearTimers = function(state) {
-      if (state.openTimer) { clearTimeout(state.openTimer); state.openTimer = null; }
-      if (state.closeTimer) { clearTimeout(state.closeTimer); state.closeTimer = null; }
-    };
-
-    const showDropdown = function(state) {
-      clearTimers(state);
-      if (!state.dropdownMenu.classList.contains('show')) {
-        state.openTimer = setTimeout(function() {
-          state.dropdownInstance.show();
-        }, 50);
-      }
-    };
-
-    const hideDropdown = function(state) {
-      if (state.openTimer) { clearTimeout(state.openTimer); state.openTimer = null; }
-      state.closeTimer = setTimeout(function() {
-        // Only close if cursor is not hovering the nav-item or the dropdown-menu
-        if (!state.dropdownItem.matches(':hover') && !state.dropdownMenu.matches(':hover')) {
-          state.dropdownInstance.hide();
-        }
-      }, hoverDelay);
-    };
-
-    const attachHover = function(dropdownItem) {
-      const trigger = dropdownItem.querySelector('[data-bs-toggle="dropdown"]');
-      const menu = dropdownItem.querySelector('.dropdown-menu');
-      if (!trigger || !menu) return;
-
-      const instance = window.bootstrap.Dropdown.getOrCreateInstance(trigger);
-      const state = {
-        dropdownItem: dropdownItem,
-        trigger: trigger,
-        dropdownMenu: menu,
-        dropdownInstance: instance,
-        openTimer: null,
-        closeTimer: null,
-        mouseEnterHandler: null,
-        mouseLeaveHandler: null,
-        menuEnterHandler: null,
-        menuLeaveHandler: null
-      };
-      hoverState.set(dropdownItem, state);
-
-      state.mouseEnterHandler = function() {
-        if (desktopQuery.matches) showDropdown(state);
-      };
-      state.mouseLeaveHandler = function() {
-        if (desktopQuery.matches) hideDropdown(state);
-      };
-      state.menuEnterHandler = function() {
-        if (desktopQuery.matches) {
-          clearTimeout(state.closeTimer);
-          state.closeTimer = null;
-        }
-      };
-      state.menuLeaveHandler = function() {
-        if (desktopQuery.matches) hideDropdown(state);
-      };
-
-      dropdownItem.addEventListener('mouseenter', state.mouseEnterHandler);
-      dropdownItem.addEventListener('mouseleave', state.mouseLeaveHandler);
-      menu.addEventListener('mouseenter', state.menuEnterHandler);
-      menu.addEventListener('mouseleave', state.menuLeaveHandler);
-    };
-
-    const detachHover = function(dropdownItem) {
-      const state = hoverState.get(dropdownItem);
-      if (!state) return;
-      clearTimers(state);
-      dropdownItem.removeEventListener('mouseenter', state.mouseEnterHandler);
-      dropdownItem.removeEventListener('mouseleave', state.mouseLeaveHandler);
-      state.dropdownMenu.removeEventListener('mouseenter', state.menuEnterHandler);
-      state.dropdownMenu.removeEventListener('mouseleave', state.menuLeaveHandler);
-      hoverState.delete(dropdownItem);
-    };
-
-    const enableHover = function() {
-      dropdownItems.forEach(function(item) {
-        if (!hoverState.get(item)) attachHover(item);
-      });
-    };
-
-    const disableHover = function() {
-      dropdownItems.forEach(function(item) {
-        detachHover(item);
-      });
-    };
-
-    desktopQuery.addEventListener('change', function(e) {
-      if (e.matches) { enableHover(); } else { disableHover(); }
-    });
-
-    if (desktopQuery.matches) {
-      enableHover();
-    }
-  })();
+  // Desktop-only dropdown hover enhancement is initialized in setupHeader() upon header component load.
 
   // IntersectionObserver for Scroll Reveal Animations with Fallback
   if (!('IntersectionObserver' in window)) {
