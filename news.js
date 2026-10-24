@@ -35,7 +35,11 @@ function renderNewsGrid(category) {
 
   const filteredData = (category === 'All') 
     ? CMET_NEWS_DATA 
-    : CMET_NEWS_DATA.filter(item => item.category === category);
+    : CMET_NEWS_DATA.filter(item => {
+        if (category === 'Upcoming Event') return item.category === 'Upcoming Event';
+        if (category === 'Events') return item.category === 'Events' || item.category === 'Upcoming Event';
+        return item.category === category;
+      });
 
   if (filteredData.length === 0) {
     container.innerHTML = `
@@ -118,7 +122,17 @@ function openNewsModal(newsId) {
   // Title, Date, Category
   document.getElementById('modalNewsTitle').innerText = item.title;
   document.getElementById('modalNewsDate').innerText = item.date;
-  document.getElementById('modalNewsCategory').innerText = item.category || 'News';
+  const catElem = document.getElementById('modalNewsCategory');
+  if (catElem) {
+    catElem.innerText = item.category || 'News';
+    if (item.category === 'Upcoming Event') {
+      catElem.style.background = 'rgba(194, 65, 12, 0.12)';
+      catElem.style.color = '#c2410c';
+    } else {
+      catElem.style.background = 'rgba(19, 122, 106, 0.1)';
+      catElem.style.color = 'var(--teal)';
+    }
+  }
 
   // Full Writeup
   const contentArea = document.getElementById('modalNewsContent');

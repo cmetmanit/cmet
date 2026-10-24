@@ -16,6 +16,72 @@
  */
 
 const CMET_NEWS_DATA = [
+  {
+    id: "cmet-two-day-exposure-program-oct2026",
+    title: "Two-Day Exposure & Dissemination Program on Dynamic Voltage Regulation Using Solar Inverter",
+    date: "27th & 28th October 2026",
+    category: "Upcoming Event",
+    featuredImage: "picture/Project & Work/Solar Inverter Pilot Project.png",
+    images: [
+      "picture/Project & Work/Solar Inverter Pilot Project.png",
+      "picture/Project & Work/Reactive Power Management in Renewable Grid.png",
+      "picture/banner/Picture37.jpg",
+      "picture/banner/04.webp"
+    ],
+    shortDescription: "CMET, MANIT Bhopal is hosting a Two-Day Exposure Visit of 14 Delegates from Odisha along with officials from MPUVNL, MPERC and NRED on Dynamic Voltage Regulation Using Solar Inverter.",
+    fullDescription: `<div class="d-flex align-items-center gap-2 mb-3">
+      <span class="badge bg-danger text-white px-3 py-2 rounded-pill fw-semibold" style="letter-spacing: 0.5px;">UPCOMING PROGRAM</span>
+      <span class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill fw-semibold">27th &ndash; 28th October 2026</span>
+    </div>
+
+    <p class="lead"><strong>Centre for Mission on Energy Transition (CMET), MANIT Bhopal</strong> is hosting a <strong>Two-Day Exposure Visit of 14 Delegates from Odisha</strong> along with officials from <strong>MPUVNL, MPERC, and NRED</strong> on <em>Dynamic Voltage Regulation Using Solar Inverter</em>.</p>
+
+    <div class="alert alert-info border-0 rounded-4 p-3 my-4 d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3" style="background: linear-gradient(135deg, rgba(19, 122, 106, 0.12), rgba(2, 132, 199, 0.12)); border-left: 4px solid var(--teal, #137a6a) !important;">
+      <div>
+        <div class="fw-bold text-dark fs-6 mb-1 d-flex align-items-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#137a6a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Official CMET Event Brochure
+        </div>
+        <p class="small text-muted mb-0">Download or view the comprehensive event brochure detailing technical models and itinerary.</p>
+      </div>
+      <a href="picture/CMET_Brochure_V4.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm text-nowrap rounded-pill px-3 py-2 fw-semibold text-white shadow-sm" style="background: #137a6a; border: none;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="me-1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Download Brochure (PDF)
+      </a>
+    </div>
+
+    <h5>Program Objective</h5>
+    <p>The objective of this exposure visit is to showcase CMET's field-proven implementation models in dynamic voltage regulation and reactive power support using existing and advanced solar inverters, and to foster mutual learning, regulatory harmonization, and collaboration between state institutions and distribution utilities.</p>
+
+    <h5 class="mt-4 mb-3">Event Itinerary</h5>
+
+    <div class="p-3 mb-3 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7;">
+      <h6 class="fw-bold mb-2" style="color: #0284c7;">Day 1 &ndash; 27th October: Demonstration &amp; Interaction</h6>
+      <ul class="mb-0 ps-3 text-secondary" style="line-height: 1.8;">
+        <li><strong>Welcome &amp; Introduction:</strong> Warm reception and introduction of the 14 delegates from Odisha and institutional representatives.</li>
+        <li><strong>Presentation and Demonstration of Best Practices:</strong> In-depth technical briefing on dynamic reactive power capabilities, Volt-VAR control, and grid code compliance.</li>
+        <li><strong>Interactive Session and Knowledge Exchange:</strong> Bilateral dialogue on grid integration hurdles, utility requirements, and scalable solar inverter solutions.</li>
+        <li><strong>Meeting with MPERC:</strong> High-level deliberation on regulatory frameworks and the MPERC regulations on reactive power support.</li>
+        <li><strong>Meeting with ACS &amp; Departmental Leadership:</strong> Strategic exchange with Additional Chief Secretary (ACS), New and Renewable Energy Department (NRED), and key state officials.</li>
+      </ul>
+    </div>
+
+    <div class="p-3 mb-4 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #10b981;">
+      <h6 class="fw-bold mb-2" style="color: #10b981;">Day 2 &ndash; 28th October: Field Exposure Visit</h6>
+      <ul class="mb-0 ps-3 text-secondary" style="line-height: 1.8;">
+        <li><strong>On-Site Field Visit &amp; Live Demonstration:</strong> Hands-on technical inspection of live inverter installations, terminal voltage regulation, and feeder-level reactive power compensation.</li>
+        <li><strong>Closing Session &amp; Experience Sharing:</strong> Synthesis of key takeaways, cross-state collaboration roadmaps, and concluding remarks.</li>
+      </ul>
+    </div>
+
+    <div class="p-3 rounded-3 bg-light border text-center">
+      <span class="text-muted d-block small mb-2">Interested delegates and participants can access the full brochure below:</span>
+      <a href="picture/CMET_Brochure_V4.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm rounded-pill px-4 py-2 fw-semibold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Open CMET_Brochure_V4.pdf
+      </a>
+    </div>`
+  },
   
   {
     id: "cmet-wcr-bina-solar-mou",

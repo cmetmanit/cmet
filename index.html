@@ -125,12 +125,15 @@
                 </div>
               </div>
               <ul class="announcement-list-v2">
-                <!-- <li>
-                  <a href="picture/pdf/CMET_Recruitment_Advertisement_and_Application_form.%20(1).pdf" target="_blank">
-                    <span>Open positions and recruitment opportunities</span>
+                <li>
+                  <a href="picture/CMET_Brochure_V4.pdf" onclick="openHpNewsModal('cmet-two-day-exposure-program-oct2026'); return false;" title="Click to view details and itinerary">
+                    <span class="d-flex align-items-center gap-2">
+                      <span class="badge bg-danger rounded-pill px-2 py-1" style="font-size: 0.68rem; letter-spacing: 0.04em;">UPCOMING</span>
+                      <span>Two-Day Exposure Program on Solar Inverters (27–28 Oct 2026)</span>
+                    </span>
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                   </a>
-                </li> -->
+                </li>
                 <li>
                   <a href="projects.html">
                     <span>PM-KUsUM integration study &amp; field implementation</span>
@@ -654,6 +657,7 @@
       function getCategoryClass(cat) {
         if (!cat) return '';
         var lower = cat.toLowerCase();
+        if (lower.indexOf('upcoming') !== -1) return 'tag-upcoming';
         if (lower.indexOf('mou') !== -1) return 'tag-mou';
         if (lower.indexOf('event') !== -1) return 'tag-events';
         if (lower.indexOf('seminar') !== -1) return 'tag-seminars';
@@ -1018,7 +1022,17 @@
 
       document.getElementById('modalNewsTitle').innerText = item.title || '';
       document.getElementById('modalNewsDate').innerText = item.date || '';
-      document.getElementById('modalNewsCategory').innerText = item.category || 'News';
+      var catElem = document.getElementById('modalNewsCategory');
+      if (catElem) {
+        catElem.innerText = item.category || 'News';
+        if (item.category === 'Upcoming Event') {
+          catElem.style.background = 'rgba(194, 65, 12, 0.12)';
+          catElem.style.color = '#c2410c';
+        } else {
+          catElem.style.background = 'rgba(19, 122, 106, 0.1)';
+          catElem.style.color = 'var(--teal)';
+        }
+      }
 
       var contentArea = document.getElementById('modalNewsContent');
       contentArea.innerHTML = item.fullDescription || (item.shortDescription ? '<p>' + item.shortDescription + '</p>' : '');
