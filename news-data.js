@@ -21,12 +21,12 @@ const CMET_NEWS_DATA = [
     title: "Two-Day Exposure & Dissemination Program on Dynamic Voltage Regulation Using Solar Inverter",
     date: "27th & 28th October 2026",
     category: "Upcoming Event",
-    featuredImage: "picture/Project & Work/Solar Inverter Pilot Project.png",
+    featuredImage: "picture/cmet-brochure-cover.jpg",
     images: [
-      "picture/Project & Work/Solar Inverter Pilot Project.png",
-      "picture/Project & Work/Reactive Power Management in Renewable Grid.png",
-      "picture/banner/Picture37.jpg",
-      "picture/banner/04.webp"
+      "picture/cmet-brochure-cover.jpg",
+      "picture/cmet-dynamic-voltage-control.jpg",
+      "picture/cmet-brochure-page-5.jpg",
+      "picture/cmet-brochure-page-2.jpg"
     ],
     shortDescription: "CMET, MANIT Bhopal is hosting a Two-Day Exposure Visit of 14 Delegates from Odisha along with officials from MPUVNL, MPERC and NRED on Dynamic Voltage Regulation Using Solar Inverter.",
     fullDescription: `<div class="d-flex align-items-center gap-2 mb-3">
