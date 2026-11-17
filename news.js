@@ -42,11 +42,26 @@ function renderNewsGrid(category) {
       });
 
   if (filteredData.length === 0) {
-    container.innerHTML = `
-      <div class="col-12 text-center py-5">
-        <p class="text-muted fs-5">No news items found in this category.</p>
-      </div>
-    `;
+    if (category === 'Upcoming Event') {
+      container.innerHTML = `
+        <div class="col-12 text-center py-5">
+          <div class="p-4 p-md-5 rounded-4 bg-light border d-inline-block text-center" style="max-width: 620px;">
+            <div class="mb-3 d-inline-flex p-3 rounded-circle bg-white shadow-sm" style="color: var(--teal, #137a6a);">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <h4 class="fw-bold text-blue mb-2">No Upcoming Events at Present</h4>
+            <p class="text-muted mb-4 lead-sm" style="font-size: 0.98rem; line-height: 1.6;">All scheduled technical programs, exposure visits, and demonstrations have concluded successfully. New workshops and calls will be announced here.</p>
+            <button class="btn btn-outline-cyan btn-sm rounded-pill px-4 py-2 fw-semibold" onclick="document.querySelector('.news-filter-btn[data-category=\\'All\\']').click();">Browse Concluded Events &amp; News &rarr;</button>
+          </div>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="col-12 text-center py-5">
+          <p class="text-muted fs-5">No news items found in this category.</p>
+        </div>
+      `;
+    }
     return;
   }
 
@@ -112,6 +127,9 @@ function setupCategoryFilters() {
  * Open News Detail Modal
  */
 function openNewsModal(newsId) {
+  if (newsId === 'cmet-two-day-exposure-program-oct2026') {
+    newsId = 'cmet-odisha-technical-program-oct2026';
+  }
   const itemIndex = CMET_NEWS_DATA.findIndex(item => item.id === newsId);
   if (itemIndex === -1) return;
   
