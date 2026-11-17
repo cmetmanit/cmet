@@ -126,10 +126,10 @@
               </div>
               <ul class="announcement-list-v2">
                 <li>
-                  <a href="picture/CMET_Brochure_V4.pdf" onclick="openHpNewsModal('cmet-two-day-exposure-program-oct2026'); return false;" title="Click to view details and itinerary">
+                  <a href="news.html" onclick="openHpNewsModal('cmet-odisha-technical-program-oct2026'); return false;" title="Click to view details and photo highlights">
                     <span class="d-flex align-items-center gap-2">
-                      <span class="badge bg-danger rounded-pill px-2 py-1" style="font-size: 0.68rem; letter-spacing: 0.04em;">UPCOMING</span>
-                      <span>Two-Day Exposure Program on Solar Inverters (27–28 Oct 2026)</span>
+                      <span class="badge bg-success rounded-pill px-2 py-1" style="font-size: 0.68rem; letter-spacing: 0.04em;">LATEST</span>
+                      <span>CMET-Odisha Two-Day Technical Program on Solar Inverters</span>
                     </span>
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                   </a>
@@ -1013,6 +1013,9 @@
     // Modal detail popup handler for Homepage
     function openHpNewsModal(newsId) {
       if (typeof CMET_NEWS_DATA === 'undefined' || !CMET_NEWS_DATA.length) return;
+      if (newsId === 'cmet-two-day-exposure-program-oct2026') {
+        newsId = 'cmet-odisha-technical-program-oct2026';
+      }
       var itemIndex = CMET_NEWS_DATA.findIndex(function(item) { return item.id === newsId; });
       if (itemIndex === -1) return;
 
