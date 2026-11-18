@@ -17,6 +17,41 @@
 
 const CMET_NEWS_DATA = [
   {
+    id: "cmet-bihar-odisha-mous-nov2026",
+    title: "CMET, MANIT Bhopal Signs MoUs with Governments of Bihar and Odisha to Advance Renewable Energy and Grid Stability Solutions",
+    date: "November 2026",
+    category: "MOU",
+    featuredImage: "picture/news/news6/mou1.jpeg",
+    images: [
+      "picture/news/news6/mou1.jpeg",
+      "picture/news/news6/mou2.jpeg",
+      "picture/news/news6/mou3.jpeg"
+    ],
+    photoCaption: "CMET, MANIT Bhopal representatives during the MoU exchanges with the Governments of Bihar and Odisha at the India Renewable Energy Summit & Expo 2026, Bharat Mandapam, New Delhi.",
+    shortDescription: "CMET, MANIT Bhopal signed MoUs with the Governments of Bihar (Rs 2000 crore) and Odisha during the India Renewable Energy Summit & Expo 2026 at Bharat Mandapam, New Delhi to advance Dynamic Voltage Regulation and grid stability solutions.",
+    fullDescription: `<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+      <span class="badge text-white px-3 py-2 rounded-pill fw-semibold" style="background: #137a6a; letter-spacing: 0.5px;">STRATEGIC MoUs</span>
+      <span class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill fw-semibold">New Delhi &bull; November 2026</span>
+    </div>
+
+    <p class="lead"><strong>New Delhi, November 2026:</strong> The Centre for Mission on Energy Transition (CMET), MANIT Bhopal has signed Memoranda of Understanding (MoUs) with the Governments of Bihar and Odisha during the <strong>India Renewable Energy Summit &amp; Expo 2026</strong> held at Bharat Mandapam, New Delhi.</p>
+
+    <div class="p-3 mb-4 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid var(--teal, #137a6a);">
+      <h6 class="fw-bold mb-2" style="color: var(--teal, #137a6a);">MoU with the Government of Bihar (Rs 2000 Crore)</h6>
+      <p class="mb-2 text-secondary">CMET signed a <strong>Rs 2000 crore MoU with the Government of Bihar</strong> during the Bihar State Plenary Session. The MoU aims to advance <strong>Dynamic Voltage Regulation using Solar Inverters, reactive power support and grid stability solutions</strong> by utilizing existing solar infrastructure. CMET was represented by <strong>Dr. Priyanka Paliwal</strong> during the MoU exchange.</p>
+      <p class="mb-0 text-secondary">The Bihar partnership is aligned with the state's expanding renewable energy ecosystem and aims to support the development of reliable, resilient and renewable-rich power systems. The collaboration will focus on practical deployment of inverter-based grid support technologies and solutions for improving voltage management and grid stability.</p>
+    </div>
+
+    <div class="p-3 mb-4 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7;">
+      <h6 class="fw-bold mb-2" style="color: #0284c7;">MoU with the Energy Department, Government of Odisha</h6>
+      <p class="mb-2 text-secondary">CMET also signed an <strong>MoU with the Energy Department, Government of Odisha</strong> during the Odisha State Plenary Session at the Bharat Renewable Energy Summit &amp; Expo 2026. The agreement builds on the ongoing collaboration between CMET and Odisha on <strong>Dynamic Voltage Regulation using Solar Inverters</strong>.</p>
+      <p class="mb-2 text-secondary">Under the Odisha collaboration, CMET and the Government of Odisha will work together to promote the use of existing solar PV inverters for <strong>reactive power support and voltage regulation</strong>, and to demonstrate <strong>Q at Night and Dynamic Voltage Control</strong> solutions for distribution networks.</p>
+      <p class="mb-0 text-secondary">The Odisha partnership follows the successful <strong>Dissemination Program on Dynamic Voltage Regulation</strong> organized by CMET at MANIT Bhopal on <strong>27&ndash;28 October 2026</strong>. The programme featured presentations on Dynamic Voltage Control, a live demonstration at the MANIT Rooftop Solar Plant, demonstration of Q at Night capability, and a field pilot demonstration at Shamshabad.</p>
+    </div>
+
+    <p>Through these strategic partnerships with the Governments of Bihar and Odisha, <strong>CMET, MANIT Bhopal is strengthening the translation of academic research and technical innovation into practical and scalable solutions for India's evolving renewable energy and power distribution systems.</strong> The collaborations will contribute towards enhanced grid stability, efficient utilization of existing solar infrastructure, and the wider adoption of inverter-based technologies for a reliable and resilient renewable energy future.</p>`
+  },
+  {
     id: "cmet-odisha-technical-program-oct2026",
     title: "CMET-Odisha Collaboration: Two-Day Technical Program on Dynamic Voltage Regulation Using Solar Inverter",
     date: "27th & 28th October 2026",

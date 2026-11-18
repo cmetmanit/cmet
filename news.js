@@ -75,11 +75,18 @@ function renderNewsGrid(category) {
     
     const catBadge = item.category ? `<span class="news-card-category">${escapeHTML(item.category)}</span>` : '';
 
+    const mediaHtml = item.featuredImage
+      ? `<img src="${escapeHTML(item.featuredImage)}" alt="${escapeHTML(item.title)}" loading="lazy" class="news-card-img">`
+      : `<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100 text-white text-center px-3" style="background: linear-gradient(135deg, #0b2733 0%, #137a6a 100%);">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="mb-2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span class="small fw-semibold text-uppercase" style="letter-spacing: 0.08em; opacity: 0.9;">CMET &bull; ${escapeHTML(item.category || 'News Update')}</span>
+        </div>`;
+
     html += `
       <div class="col-md-6 col-lg-4">
         <div class="news-card h-100 reveal active reveal-slide-up" onclick="handleCardClick(event, '${item.id}', ${hasReadMore})">
           <div class="news-card-img-wrap">
-            <img src="${escapeHTML(item.featuredImage)}" alt="${escapeHTML(item.title)}" loading="lazy" class="news-card-img">
+            ${mediaHtml}
             ${catBadge}
           </div>
           <div class="news-card-body d-flex flex-column">
@@ -158,12 +165,21 @@ function openNewsModal(newsId) {
 
   // Images Carousel / Single View
   const galleryArea = document.getElementById('modalNewsGallery');
-  const images = item.images && item.images.length > 0 ? item.images : [item.featuredImage];
+  const rawImages = item.images && item.images.length > 0 ? item.images : (item.featuredImage ? [item.featuredImage] : []);
+  const images = rawImages.filter(Boolean);
+  const captionHtml = item.photoCaption
+    ? `<p class="small text-muted fst-italic mt-2 mb-0"><strong>Photo Caption:</strong> ${escapeHTML(item.photoCaption)}</p>`
+    : '';
 
-  if (images.length === 1) {
+  if (images.length === 0) {
+    galleryArea.innerHTML = item.photoCaption
+      ? `<div class="p-3 mb-4 rounded-3 bg-light border small text-muted fst-italic"><strong>Photo Caption:</strong> ${escapeHTML(item.photoCaption)}</div>`
+      : '';
+  } else if (images.length === 1) {
     galleryArea.innerHTML = `
       <div class="single-news-image mb-4">
         <img src="${escapeHTML(images[0])}" alt="${escapeHTML(item.title)}" class="img-fluid rounded-4 shadow-sm w-100">
+        ${captionHtml}
       </div>
     `;
   } else {
@@ -180,17 +196,20 @@ function openNewsModal(newsId) {
     });
 
     galleryArea.innerHTML = `
-      <div id="newsModalCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
-        <div class="carousel-indicators">${indicators}</div>
-        <div class="carousel-inner">${slides}</div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#newsModalCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#newsModalCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+      <div class="mb-4">
+        <div id="newsModalCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">${indicators}</div>
+          <div class="carousel-inner">${slides}</div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#newsModalCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#newsModalCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        ${captionHtml}
       </div>
     `;
   }
@@ -221,11 +240,18 @@ function renderHomepageLatestNews() {
     const hasReadMore = !!(item.fullDescription || (item.images && item.images.length > 1));
     const shortDesc = item.shortDescription ? `<p class="news-card-desc">${escapeHTML(item.shortDescription)}</p>` : '';
 
+    const mediaHtml = item.featuredImage
+      ? `<img src="${escapeHTML(item.featuredImage)}" alt="${escapeHTML(item.title)}" loading="lazy" class="news-card-img">`
+      : `<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100 text-white text-center px-3" style="background: linear-gradient(135deg, #0b2733 0%, #137a6a 100%);">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="mb-2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span class="small fw-semibold text-uppercase" style="letter-spacing: 0.08em; opacity: 0.9;">CMET &bull; ${escapeHTML(item.category || 'Latest')}</span>
+        </div>`;
+
     html += `
       <div class="col-md-6 col-lg-4">
         <div class="news-card h-100 reveal active reveal-slide-up" onclick="handleHomepageNewsClick(event, '${item.id}')">
           <div class="news-card-img-wrap">
-            <img src="${escapeHTML(item.featuredImage)}" alt="${escapeHTML(item.title)}" loading="lazy" class="news-card-img">
+            ${mediaHtml}
             <span class="news-card-category">${escapeHTML(item.category || 'Latest')}</span>
           </div>
           <div class="news-card-body d-flex flex-column">
