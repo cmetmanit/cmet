@@ -17,9 +17,48 @@
 
 const CMET_NEWS_DATA = [
   {
-    id: "cmet-bihar-odisha-mous-nov2026",
-    title: "CMET, MANIT Bhopal Signs MoUs with Governments of Bihar and Odisha to Advance Renewable Energy and Grid Stability Solutions",
+    id: "cmet-bihar-mou-nov2026",
+    title: "Centre for Mission on Energy Transition (CMET), MANIT Bhopal Signs Rs 2000 Crore MoU with Government of Bihar",
     date: "November 2026",
+    category: "MOU",
+    featuredImage: "picture/news/news7/mou_bihar.jpeg",
+    images: [
+      "picture/news/news7/mou_bihar.jpeg"
+    ],
+    photoCaption: "Dr. Priyanka Paliwal, Centre for Mission on Energy Transition (CMET), MANIT Bhopal, during the MoU exchange with Government of Bihar at the Bihar State Plenary Session, India Renewable Energy Summit & Expo 2026, Bharat Mandapam, New Delhi.",
+    shortDescription: "Centre for Mission on Energy Transition (CMET), MANIT Bhopal signed a Rs 2000 crore MoU with Government of Bihar at Bharat RE Summit & Expo 2026, New Delhi. CMET was represented by Dr. Priyanka Paliwal. The MoU will advance Dynamic Voltage Regulation using Solar Inverters and grid stability solutions in Bihar.",
+    fullDescription: `<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+      <span class="badge text-white px-3 py-2 rounded-pill fw-semibold" style="background: #137a6a; letter-spacing: 0.5px;">STRATEGIC MoU &bull; Rs 2000 CRORE</span>
+      <span class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill fw-semibold">New Delhi &bull; November 2026</span>
+    </div>
+
+    <p class="lead"><strong>New Delhi, November 2026:</strong> The Centre for Mission on Energy Transition (CMET), MANIT Bhopal signed a Memorandum of Understanding (MoU) worth <strong>Rs 2000 crore</strong> with the Government of Bihar during the Bihar State Plenary Session at the <strong>India Renewable Energy Summit &amp; Expo 2026</strong>, Bharat Mandapam, New Delhi.</p>
+
+    <p>CMET was represented by <strong>Dr. Priyanka Paliwal</strong> during the MoU exchange.</p>
+
+    <div class="p-3 mb-4 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid var(--teal, #137a6a);">
+      <h6 class="fw-bold mb-2" style="color: var(--teal, #137a6a);">Bihar's Renewable Energy Vision &amp; Leadership Address</h6>
+      <p class="mb-2 text-secondary">The session showcased Bihar as a major emerging destination in the renewable energy sector. Addressing investors and industry representatives, <strong>Hon'ble Energy Minister, Government of Bihar, Shri Shailesh Kumar</strong> invited them to invest in the state and assured all possible support from the State Government, emphasizing that Bihar offers immense potential for high growth and high returns.</p>
+      <p class="mb-0 text-secondary">Energy Secretary-cum-Chairman and Managing Director, Bihar State Power Holding Company Limited (BSPHCL), <strong>Shri Ajay Yadav (IAS)</strong>, highlighted the transformation of Bihar's power sector, stating that electricity demand increased from ~700 MW in 2005 to approximately 10,000 MW today, with the successful achievement of 'Har Ghar Bijli'. Demand is projected to reach approximately 25,000 MW over the next decade.</p>
+    </div>
+
+    <div class="p-3 mb-4 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7;">
+      <h6 class="fw-bold mb-2" style="color: #0284c7;">Key Clean Energy Initiatives &amp; Investment Roadmap</h6>
+      <ul class="mb-0 ps-3 text-secondary" style="line-height: 1.8;">
+        <li><strong>301 MW Kajra Solar Power Project</strong> coupled with a <strong>523 MWh Battery Energy Storage System (BESS)</strong>.</li>
+        <li>Solarisation of government buildings and ongoing projects worth approx. <strong>Rs 78,400 crore</strong> at various stages of implementation in Bihar.</li>
+        <li>A comprehensive investment roadmap worth <strong>Rs 2,57,316 crore</strong> prepared across power generation, transmission, distribution, and infrastructure maintenance.</li>
+      </ul>
+    </div>
+
+    <p>The programme was attended by <strong>Shri Santosh Kumar Sarangi</strong>, Secretary, Ministry of New and Renewable Energy, Government of India; <strong>Shri Anupam Kumar</strong>, Joint Secretary; <strong>Shri Ghanshyam Prasad</strong>, Chairperson of the Central Electricity Authority under the Ministry of Power; <strong>Shri Vishal Raj</strong>, Managing Director, BSPGCL; and <strong>Shri Vineet Mittal</strong>, Founder and Chairman, Avaada, along with other senior officials and industry representatives.</p>
+
+    <p>Through this Rs 2000 crore MoU, <strong>CMET and Government of Bihar will work together to advance Dynamic Voltage Regulation using Solar Inverters, reactive power support and grid stability solutions using existing solar infrastructure</strong>, and to support Bihar's transition towards a reliable, resilient and renewable-rich power system.</p>`
+  },
+  {
+    id: "cmet-odisha-mou-nov2026",
+    title: "CMET, MANIT Bhopal Signs MoU with Government of Odisha for Advancing Dynamic Voltage Regulation Using Solar Inverters",
+    date: "3 November 2026",
     category: "MOU",
     featuredImage: "picture/news/news6/mou1.jpeg",
     images: [
@@ -27,29 +66,25 @@ const CMET_NEWS_DATA = [
       "picture/news/news6/mou2.jpeg",
       "picture/news/news6/mou3.jpeg"
     ],
-    photoCaption: "CMET, MANIT Bhopal representatives during the MoU exchanges with the Governments of Bihar and Odisha at the India Renewable Energy Summit & Expo 2026, Bharat Mandapam, New Delhi.",
-    shortDescription: "CMET, MANIT Bhopal signed MoUs with the Governments of Bihar (Rs 2000 crore) and Odisha during the India Renewable Energy Summit & Expo 2026 at Bharat Mandapam, New Delhi to advance Dynamic Voltage Regulation and grid stability solutions.",
+    photoCaption: "CMET signs MoU with Government of Odisha during the Odisha State Plenary Session at Bharat RE Summit & Expo 2026, Bharat Mandapam, New Delhi.",
+    shortDescription: "CMET, MANIT Bhopal signed a Memorandum of Understanding (MoU) with the Energy Department, Government of Odisha during the Bharat Renewable Energy Summit & Expo 2026 at Bharat Mandapam, New Delhi for advancing Dynamic Voltage Regulation using solar inverters.",
     fullDescription: `<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-      <span class="badge text-white px-3 py-2 rounded-pill fw-semibold" style="background: #137a6a; letter-spacing: 0.5px;">STRATEGIC MoUs</span>
-      <span class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill fw-semibold">New Delhi &bull; November 2026</span>
+      <span class="badge text-white px-3 py-2 rounded-pill fw-semibold" style="background: #137a6a; letter-spacing: 0.5px;">STRATEGIC MoU</span>
+      <span class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill fw-semibold">New Delhi &bull; 3 November 2026</span>
     </div>
 
-    <p class="lead"><strong>New Delhi, November 2026:</strong> The Centre for Mission on Energy Transition (CMET), MANIT Bhopal has signed Memoranda of Understanding (MoUs) with the Governments of Bihar and Odisha during the <strong>India Renewable Energy Summit &amp; Expo 2026</strong> held at Bharat Mandapam, New Delhi.</p>
+    <p class="lead"><strong>New Delhi, 3 November 2026:</strong> Centre for Mission on Energy Transition (CMET), MANIT Bhopal signed a Memorandum of Understanding (MoU) with the Energy Department, Government of Odisha during the <strong>Bharat Renewable Energy Summit &amp; Expo 2026</strong> at Bharat Mandapam, New Delhi.</p>
 
     <div class="p-3 mb-4 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid var(--teal, #137a6a);">
-      <h6 class="fw-bold mb-2" style="color: var(--teal, #137a6a);">MoU with the Government of Bihar (Rs 2000 Crore)</h6>
-      <p class="mb-2 text-secondary">CMET signed a <strong>Rs 2000 crore MoU with the Government of Bihar</strong> during the Bihar State Plenary Session. The MoU aims to advance <strong>Dynamic Voltage Regulation using Solar Inverters, reactive power support and grid stability solutions</strong> by utilizing existing solar infrastructure. CMET was represented by <strong>Dr. Priyanka Paliwal</strong> during the MoU exchange.</p>
-      <p class="mb-0 text-secondary">The Bihar partnership is aligned with the state's expanding renewable energy ecosystem and aims to support the development of reliable, resilient and renewable-rich power systems. The collaboration will focus on practical deployment of inverter-based grid support technologies and solutions for improving voltage management and grid stability.</p>
+      <h6 class="fw-bold mb-2" style="color: var(--teal, #137a6a);">MoU Signing Ceremony &amp; Distinguished Dignitaries</h6>
+      <p class="mb-0 text-secondary">The MoU was signed on <strong>3rd of November 2026</strong> in the presence of the Hon’ble Union Minister for New and Renewable Energy, Chief Minister and Deputy Chief Minister of Odisha, Minister for New and Renewable Energy, Madhya Pradesh, senior government officials, and Managing Directors of the Renewable Energy Agencies of both states.</p>
     </div>
 
-    <div class="p-3 mb-4 rounded-3" style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7;">
-      <h6 class="fw-bold mb-2" style="color: #0284c7;">MoU with the Energy Department, Government of Odisha</h6>
-      <p class="mb-2 text-secondary">CMET also signed an <strong>MoU with the Energy Department, Government of Odisha</strong> during the Odisha State Plenary Session at the Bharat Renewable Energy Summit &amp; Expo 2026. The agreement builds on the ongoing collaboration between CMET and Odisha on <strong>Dynamic Voltage Regulation using Solar Inverters</strong>.</p>
-      <p class="mb-2 text-secondary">Under the Odisha collaboration, CMET and the Government of Odisha will work together to promote the use of existing solar PV inverters for <strong>reactive power support and voltage regulation</strong>, and to demonstrate <strong>Q at Night and Dynamic Voltage Control</strong> solutions for distribution networks.</p>
-      <p class="mb-0 text-secondary">The Odisha partnership follows the successful <strong>Dissemination Program on Dynamic Voltage Regulation</strong> organized by CMET at MANIT Bhopal on <strong>27&ndash;28 October 2026</strong>. The programme featured presentations on Dynamic Voltage Control, a live demonstration at the MANIT Rooftop Solar Plant, demonstration of Q at Night capability, and a field pilot demonstration at Shamshabad.</p>
-    </div>
+    <p>This MoU marks a significant step in the ongoing <strong>CMET-Odisha collaboration on Dynamic Voltage Regulation using Solar Inverters</strong>. Under this collaboration, CMET had already successfully organized a Dissemination Program on Dynamic Voltage Regulation at MANIT Bhopal on <strong>27&ndash;28 October 2026</strong>, featuring presentations on Dynamic Voltage Control, live demonstration at MANIT Rooftop Solar Plant, Q at Night capability demonstration, and field pilot demonstration at Shamshabad.</p>
 
-    <p>Through these strategic partnerships with the Governments of Bihar and Odisha, <strong>CMET, MANIT Bhopal is strengthening the translation of academic research and technical innovation into practical and scalable solutions for India's evolving renewable energy and power distribution systems.</strong> The collaborations will contribute towards enhanced grid stability, efficient utilization of existing solar infrastructure, and the wider adoption of inverter-based technologies for a reliable and resilient renewable energy future.</p>`
+    <p>Through this MoU, CMET and Government of Odisha will work together to promote the use of existing solar PV inverters for <strong>reactive power support and voltage regulation</strong>, demonstrate <strong>Q at Night and Dynamic Voltage Control</strong> solutions in Odisha, and support the wider deployment of inverter-based grid support technologies for a reliable, resilient and renewable-rich power system.</p>
+
+    <p>The partnership reflects CMET's commitment to translating academic research into practical, scalable solutions for distribution utilities and state power systems across India.</p>`
   },
   {
     id: "cmet-odisha-technical-program-oct2026",
